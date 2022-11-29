@@ -1,0 +1,95 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+USER_HOME="${HOME}"
+
+if [[ -z $(command -v frobulator) ]]
+then
+	if [[ $(id -u -n) = "root" ]]
+	then
+		if [ -z "${SUDO:-$HOME}" ]
+		then
+			SUDO_HOME=/root
+		else
+			SUDO_HOME="${SUDO:-$HOME}"
+		fi
+
+		USER="${SUDO_USER}"
+		USER_HOME=/home/"${USER}"
+	fi
+
+	if [[ -z $(command -v curl) ]]
+	then
+		yes | apt-get install curl
+	fi
+
+	if [ ! -d "${USER_HOME}"/.local/bin ]
+	then
+		mkdir -p "${USER_HOME}"/.local/bin/frobulator
+	fi
+
+	curl -s -L get.frbltr.app > "${USER_HOME}"/.local/bin/frobulator
+
+	chmod +x "${USER_HOME}"/.local/bin/frobulator
+fi
+
+. "${USER_HOME}"/.local/bin/frobulator
+
+# superuser ////////////////////////////////////////////////////////////////////
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="10-26-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+local_models_directory=/media/internal/Printer/models
+server_models_directory="${PWD}"/models
+server_backgrounds_directory="${PWD}"/background
+server_javascript_directory="${PWD}"/javascript
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+# prepare update
+
+directories_list=(
+	"${server_models_directory}"
+)
+
+for directory in ${directories_list[@]}
+do
+	rm -rf "${directory}" ]
+
+	mkdir -p "${directory}"
+done
+
+# pull /////////////////////////////////////////////////////////////////////////
+
+rsync							\
+	--archive					\
+	--quiet						\
+	--recursive					\
+	--exclude='*.ldr'			\
+	--exclude='*.mpd'			\
+	--exclude='*.pdf'			\
+	--exclude="instructions"	\
+	--exclude="configuration"	\
+	--exclude='LPub3D'			\
+								"${local_models_directory}"/* "${server_models_directory}"
+
+frobulator.scs "Copy" "[ Done ]"
+echo

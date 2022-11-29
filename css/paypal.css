@@ -1,0 +1,38 @@
+.paypal {
+	position: fixed;
+	top: 0px;
+	left: -256px;
+	padding: 10px 10px 10px 10px;
+
+	animation-name: paypal-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes paypal-reveal {
+	0% {left: -200px;}
+
+	100% {left: 0px;}
+}
+
+.paypal input[type="image"] {
+	height: 64px;
+	width: 64px;
+}
+
+.paypal:hover {
+	color: #01aa88ff;
+}
+
+.print-black {
+	top: 0px;
+}
+
+.print-grey {
+	top: 88px;
+}
+
+.print-file {
+	top: 176px;
+}

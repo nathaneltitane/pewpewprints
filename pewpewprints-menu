@@ -1,0 +1,274 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+USER_HOME="${HOME}"
+
+if [[ -z $(command -v frobulator) ]]
+then
+	if [[ $(id -u -n) = "root" ]]
+	then
+		if [ -z "${SUDO:-$HOME}" ]
+		then
+			SUDO_HOME=/root
+		else
+			SUDO_HOME="${SUDO:-$HOME}"
+		fi
+
+		USER="${SUDO_USER}"
+		USER_HOME=/home/"${USER}"
+	fi
+
+	if [[ -z $(command -v curl) ]]
+	then
+		yes | apt-get install curl
+	fi
+
+	if [ ! -d "${USER_HOME}"/.local/bin ]
+	then
+		mkdir -p "${USER_HOME}"/.local/bin/frobulator
+	fi
+
+	curl -s -L get.frbltr.app > "${USER_HOME}"/.local/bin/frobulator
+
+	chmod +x "${USER_HOME}"/.local/bin/frobulator
+fi
+
+. "${USER_HOME}"/.local/bin/frobulator
+
+# superuser ////////////////////////////////////////////////////////////////////
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="10-26-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+frobulator.inf "Generating model entries"
+echo
+
+frobulator.fwd "Writing..."
+echo
+
+# generate header
+
+cat << 'MODELS-MENU-HEADER' -> "modules/menu.html"
+		<script>
+
+			$(function(){
+
+				$.get("/modules/anchors.html", function (data) {
+
+					$("#anchors").append(data);
+
+				});
+
+				}
+			);
+
+		</script>
+
+		<!-- BEGIN MODELS MENU -->
+
+MODELS-MENU-HEADER
+
+# values
+
+extensions_list=(
+	png
+)
+
+for extension in ${extensions_list[@]}
+do
+	count=1
+
+	# shuffle models directories list:
+	# creates random showcase of all models on each update
+
+	for models_list in $(find models/ -type f -iname render."${extension}")
+	do
+		IFS='/' read -r -a path <<< $(echo "$models_list")
+
+		# /models/model-type/model/render.${extension}
+
+		# "${path[0]}" /models
+		# "${path[1]}" /model-category
+		# "${path[2]}" /model
+
+		model_category=$(cat ${path[0]}/${path[1]}/title)
+
+		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		model_title_string=$(echo ${model_title//\<\/\br\>/})
+
+		model_paypal_black=${path[0]}/${path[1]}/${path[2]}/paypal-black
+
+		model_paypal_black_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal-black)
+
+		model_paypal_grey=${path[0]}/${path[1]}/${path[2]}/paypal-grey
+
+		model_paypal_grey_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal-grey)
+
+		model_paypal_file=${path[0]}/${path[1]}/${path[2]}/paypal-file
+
+		model_paypal_file_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal-file)
+
+		model_pieces=${path[0]}/${path[1]}/${path[2]}/pieces
+
+		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/pieces)
+
+		model_price_black=$(cat ${path[0]}/${path[1]}/${path[2]}/price-black)
+
+		model_price_grey=$(cat ${path[0]}/${path[1]}/${path[2]}/price-grey)
+
+		model_price_file=$(cat ${path[0]}/${path[1]}/${path[2]}/price-file)
+
+		# keep first container visible
+
+		if [ "${count}" -eq 1 ]
+		then
+			hidden=""
+		else
+			hidden="hidden"
+		fi
+
+# generate model container
+
+cat << MODEL-CONTAINER ->> "modules/menu.html"
+<!-- BEGIN CONTAINER -->
+
+<div id=${model_title_string/ /-} class='container ${hidden}'>
+
+	<div class='grid grid-column grid-center grid-around grid-wrap'>
+
+		<div class='grid-cell'>
+
+			<a href="models/${path[1]}/${path[2]}"'>
+
+				<img src="/${path[0]}/${path[1]}/${path[2]}/render.png" />
+
+			</a>
+
+		</div>
+
+	</div>
+
+MODEL-CONTAINER
+
+if [ -d "${model_instructions}" ]
+then
+
+cat << MODEL-TITLE ->> "modules/menu.html"
+	<div id="menu-item" class="section grid grid-column grid-stretch">
+
+		<div class="category grid-cell text-left">
+
+			${model_category}
+
+		</div>
+
+		<a class="button" href="models/${path[1]}/${path[2]}/">
+
+			<div class="grid grid-row grid-middle">
+
+				<div class="grid">
+
+					<div class="icon icon-flex icon-center logo-green"></div>
+
+				</div>
+
+				<div class="grid-cell text-center">
+
+					${model_title_string}
+
+				</div>
+
+			</div>
+
+		</a>
+
+	</div>
+
+</div>
+
+<!-- END CONTAINER -->
+
+MODEL-TITLE
+
+else
+
+cat << MODEL-TITLE ->> "modules/menu.html"
+	<div class="menu section grid grid-column grid-stretch">
+
+		<div class="category grid-cell text-left">
+
+			${model_category}
+
+		</div>
+
+		<a class="button" href="models/${path[1]}/${path[2]}/">
+
+			<div class="grid grid-row grid-middle">
+
+				<div class="grid">
+
+					<div class="icon icon-flex icon-center logo-orange"></div>
+
+				</div>
+
+				<div class="grid-cell text-center">
+
+					${model_title_string}
+
+				</div>
+
+			</div>
+
+		</a>
+
+	</div>
+
+</div>
+
+<!-- END CONTAINER -->
+
+MODEL-TITLE
+
+fi
+
+	((count++))
+
+	done
+done
+
+# generate footer
+
+cat << FOOTER ->> "modules/menu.html"
+<!-- END MODELS MENU -->
+
+<div id="anchors" class="section">
+
+</div>
+
+FOOTER
+
+frobulator.inf "Parsed model entries" "[ ${count} ]"
+echo
+
+frobulator.scs "Models menu" "[ Done ]"
+echo

@@ -1,0 +1,332 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+USER_HOME="${HOME}"
+
+if [[ -z $(command -v frobulator) ]]
+then
+	if [[ $(id -u -n) = "root" ]]
+	then
+		if [ -z "${SUDO:-$HOME}" ]
+		then
+			SUDO_HOME=/root
+		else
+			SUDO_HOME="${SUDO:-$HOME}"
+		fi
+
+		USER="${SUDO_USER}"
+		USER_HOME=/home/"${USER}"
+	fi
+
+	if [[ -z $(command -v curl) ]]
+	then
+		yes | apt-get install curl
+	fi
+
+	if [ ! -d "${USER_HOME}"/.local/bin ]
+	then
+		mkdir -p "${USER_HOME}"/.local/bin/frobulator
+	fi
+
+	curl -s -L get.frbltr.app > "${USER_HOME}"/.local/bin/frobulator
+
+	chmod +x "${USER_HOME}"/.local/bin/frobulator
+fi
+
+. "${USER_HOME}"/.local/bin/frobulator
+
+# superuser ////////////////////////////////////////////////////////////////////
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="10-26-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+frobulator.inf "Generating model entries"
+echo
+
+frobulator.fwd "Writing..."
+echo
+# values
+
+extensions_list=(
+	png
+)
+
+for extension in ${extensions_list[@]}
+do
+	count=1
+
+	# shuffle models directories list:
+	# creates random showcase of all models on each update
+
+	for models_list in $(find models/ -type f -iname render."${extension}" | shuf)
+	do
+		IFS='/' read -r -a path <<< $(echo "$models_list")
+
+		# /models/model-type/model/render.${extension}
+
+		# "${path[0]}" /models
+		# "${path[1]}" /model-category
+		# "${path[2]}" /model
+
+		model_category=$(cat ${path[0]}/${path[1]}/title)
+
+		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		model_title_string=$(echo ${model_title//\<\/\br\>/})
+
+		model_paypal_black=${path[0]}/${path[1]}/${path[2]}/paypal-black
+
+		model_paypal_id_black=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal-black)
+
+		model_paypal_grey=${path[0]}/${path[1]}/${path[2]}/paypal-grey
+
+		model_paypal_id_grey=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal-grey)
+
+		model_paypal_file=${path[0]}/${path[1]}/${path[2]}/paypal-file
+
+		model_paypal_id_file=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal-file)
+
+		model_pieces=${path[0]}/${path[1]}/${path[2]}/pieces
+
+		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/pieces)
+
+		model_price_black=$(cat ${path[0]}/${path[1]}/${path[2]}/price-black)
+
+		model_price_grey=$(cat ${path[0]}/${path[1]}/${path[2]}/price-grey)
+
+		model_price_file=$(cat ${path[0]}/${path[1]}/${path[2]}/price-file)
+
+		if [ "${model_pieces_count}" -eq 1 ]
+		then
+			pieces_label="PIECE"
+		else
+			pieces_label="PIECE"
+		fi
+
+# generate 3d model page
+
+cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<!-- css -->
+
+		<link rel="stylesheet" href="/css/css.css" type="text/css" />
+
+		<!-- libraries -->
+
+		<script src="/javascript/jquery-3.4.1.min.js" type="text/javascript"></script>
+
+		<!-- scripts -->
+
+		<script src="/javascript/modules.js" type="text/javascript"></script>
+
+	</head>
+
+	<body>
+
+	<div id="drawer">
+
+	</div>
+
+3D-MODEL-PAGE-HEADER
+
+cat << 3D-MODEL-PAGE-BACKGROUND ->> "models/${path[1]}/${path[2]}/index.html"
+	<div class='background grid grid-column grid-center grid-around grid-wrap'>
+
+		<div class='grid-cell'>
+
+				<img src="/models/${path[1]}/${path[2]}/render.png" />
+
+		</div>
+
+	</div>
+
+3D-MODEL-PAGE-BACKGROUND
+
+if [ -f "${model_paypal_black}" ]
+then
+
+cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
+		<!-- paypal -->
+
+		<div class="paypal print-black grid grid-row">
+
+			<div class="grid-cell grid-cell-center">
+
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+					<input type="hidden" name="cmd" value="_s-xclick">
+
+					<input type="hidden" name="hosted_button_id" value="${model_paypal_id_black}">
+
+					<input type="image" src="/logo/logo-black.svg" name="submit">
+
+				</form>
+
+			</div>
+
+			<div class="grid-cell grid-cell-center text-bold text-center">
+
+				BLACK</br>
+				\$${model_price_black} USD</br>
+				ORDER!</br>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAYPAL
+
+fi
+
+if [ -f "${model_paypal_grey}" ]
+then
+
+cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
+		<!-- paypal -->
+
+		<div class="paypal print-grey grid grid-row">
+
+			<div class="grid-cell grid-cell-center">
+
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+					<input type="hidden" name="cmd" value="_s-xclick">
+
+					<input type="hidden" name="hosted_button_id" value="${model_paypal_id_grey}">
+
+					<input type="image" src="/logo/logo-grey.svg" name="submit">
+
+				</form>
+
+			</div>
+
+			<div class="grid-cell grid-cell-center text-bold text-center">
+
+				GREY</br>
+				\$${model_price_grey} USD</br>
+				ORDER!</br>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAYPAL
+
+fi
+
+if [ -f "${model_paypal_file}" ]
+then
+
+cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
+		<!-- paypal -->
+
+		<div class="paypal print-file grid grid-row">
+
+			<div class="grid-cell grid-cell-center">
+
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+					<input type="hidden" name="cmd" value="_s-xclick">
+
+					<input type="hidden" name="hosted_button_id" value="${model_paypal_id_file}">
+
+					<input type="image" src="/logo/logo-fuschia.svg" name="submit">
+
+				</form>
+
+			</div>
+
+			<div class="grid-cell grid-cell-center text-bold text-center">
+
+				FILE</br>
+				\$${model_price_file} USD</br>
+				ORDER!</br>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAYPAL
+
+fi
+
+cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
+		<!-- model -->
+
+		<div id="model" class="model section grid grid-column grid-stretch">
+
+			<div class="grid-cell category text-left">
+
+				${model_category}
+
+			</div>
+
+			<div class="button grid grid-row grid-middle">
+
+				<div class="grid">
+
+					<div class="icon icon-flex icon-center logo-green">
+
+					</div>
+
+				</div>
+
+				<div class="grid-cell text-center">
+
+						${model_title_string}</br>
+
+						${model_pieces_count} ${pieces_label}
+
+				</div>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAGE-TITLE
+
+cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
+		<div id="footer" class="section">
+
+		</div>
+
+	</body>
+
+</html>
+
+3D-MODEL-PAGE-FOOTER
+
+	((count++))
+
+	done
+done
+
+frobulator.inf "Parsed model entries" "[ ${count} ]"
+echo
+
+frobulator.scs "3D model pages" "[ Done ]"
+echo

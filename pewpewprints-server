@@ -1,0 +1,123 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+USER_HOME="${HOME}"
+
+if [[ -z $(command -v frobulator) ]]
+then
+	if [[ $(id -u -n) = "root" ]]
+	then
+		if [ -z "${SUDO:-$HOME}" ]
+		then
+			SUDO_HOME=/root
+		else
+			SUDO_HOME="${SUDO:-$HOME}"
+		fi
+
+		USER="${SUDO_USER}"
+		USER_HOME=/home/"${USER}"
+	fi
+
+	if [[ -z $(command -v curl) ]]
+	then
+		yes | apt-get install curl
+	fi
+
+	if [ ! -d "${USER_HOME}"/.local/bin ]
+	then
+		mkdir -p "${USER_HOME}"/.local/bin/frobulator
+	fi
+
+	curl -s -L get.frbltr.app > "${USER_HOME}"/.local/bin/frobulator
+
+	chmod +x "${USER_HOME}"/.local/bin/frobulator
+fi
+
+. "${USER_HOME}"/.local/bin/frobulator
+
+# superuser ////////////////////////////////////////////////////////////////////
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="10-26-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+local_content_directory="${PWD}"/
+local_server_directory=/var/www/html/pewpewprints/
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+list=(
+	apache2
+)
+
+frobulator.require ${list[@]}
+
+# functions ////////////////////////////////////////////////////////////////////
+
+# generate server configuration
+
+cat <<- 'FILE' > /etc/apache2/sites-enabled/pewpewprints.conf
+<VirtualHost *:80>
+        ServerAdmin     nathanel.titane@gmail.com
+        ServerName      pewpewprints
+        ServerAlias     dev.pewpewprints.com
+        DocumentRoot    /var/www/html/pewpewprints/
+        ErrorLog        ${APACHE_LOG_DIR}/pewpewprints.error.log
+        CustomLog       ${APACHE_LOG_DIR}/pewpewprints.access.log combined
+</VirtualHost>
+FILE
+
+# reload service
+
+service apache2 reload
+
+# enable virtual host configuration distribution
+
+a2ensite pewpewprints.conf
+
+# configure server host address
+
+cat <<- 'FILE' >> /etc/hosts
+127.0.0.1       dev.pewpewprints.com
+FILE
+
+# generate local server directory
+
+directories_list=(
+	/var/www/html/pewpewprints
+)
+
+for directory in ${directories_list[@]}
+do
+	mkdir -p "${directory}"
+
+	chmod -R 777 "${directory}"
+done
+
+# pull /////////////////////////////////////////////////////////////////////////
+
+rsync					\
+	--archive			\
+	--quiet				\
+	--recursive			\
+	--exclude='*.ldr'	\
+	--exclude='*.mpd'	\
+	--exclude='*.pdf'	\
+						"${local_content_directory}"/* "${local_server_directory}"
+
+frobulator.scs "Server" "[ Done ]"
+echo
