@@ -98,7 +98,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 					<div class="grid-cell text-bold text-center">
 
-						// NOTICE</br>
+						// NOTICE //</br>
 						</br>
 
 					</div>
