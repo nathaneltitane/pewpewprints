@@ -8,6 +8,6 @@ img {
 
 #menu img {
 	padding: 0px 0px 0px 0px;
-	height: calc(100vh - 80px - 60px - 120px);
+	height: 100vw;
 	width: auto;
 }
