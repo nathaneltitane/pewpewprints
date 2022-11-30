@@ -21,19 +21,19 @@ List of owned foam blasters to test with [ and what has been tested ]:
   - Magazine Clip Hanger - Horizontal
   - Magazine Clip Hanger - Vertical
 - Adventure Force Nexus Pro
- - Magazine Clip Hanger - Horizontal
- - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal
+  - Magazine Clip Hanger - Vertical
 - Adventure Force Conquest Pro
 - Dart Zone Pro MK 1.2
- - Magazine Clip Hanger - Horizontal
- - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal
+  - Magazine Clip Hanger - Vertical
 - Dart Zone Pro MK 2.1
 - Dart Zone Pro MK 3
- - Magazine Clip Hanger - Horizontal
- - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal
+  - Magazine Clip Hanger - Vertical
 - Dart Zone Max Stryker
- - Magazine Clip Hanger - Horizontal
- - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal
+  - Magazine Clip Hanger - Vertical
 - Dart Zone Max Tomcat
 - Dart Zone Max Deuce Pro
 - Dart Zone Max Dictator
