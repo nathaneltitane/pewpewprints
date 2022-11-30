@@ -1,641 +1,670 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<style>
+			* {
+				max-width: 800px;
+				padding: 10px 10px 10px 10px;
+				margin: auto;
+				background: #333333ff;
+				color: #666666ff;
+				font-family: 'Open Sans', sans-serif !important;
+				text-align: center;
+			}
+
+			a {
+			color: #008066ff;
+			font-weight: bold;
+			border: none;
+			outline: none;
+			}
+
+			a:active,
+			a:focus,
+			a:link,
+			a:visited {
+				text-decoration: none;
+				outline: none;
+			}
+
+			a:hover {
+				color: #ffd140ff;
+				text-decoration: none;
+				outline: none;
+			}
+
+			#footer * {
+				padding: 10px 0px 0px 0px;
+			}
+
+			.grid {
+				display: flex;
+
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+
+				-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-ms-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+			}
+
+			.grid-column {
+				flex-direction: column;
+			}
+
+			.grid-column-reverse {
+				flex-direction: column-reverse;
+			}
+
+			.grid-row {
+				flex-direction: row;
+			}
+
+			.grid-row-reverse {
+				flex-direction: row-reverse;
+			}
+
+			.grid-left {
+				justify-content: flex-start;
+			}
+
+			.grid-right {
+				justify-content: flex-end;
+			}
+
+			.grid-center {
+				justify-content: center;
+			}
+
+			.grid-around {
+				justify-content: space-around;
+			}
+
+			.grid-between {
+				justify-content: space-between;
+			}
+
+			.grid-start {
+				align-items: flex-start;
+			}
+
+			.grid-end {
+				align-items: flex-end;
+			}
+
+			.grid-middle {
+				align-items: center;
+			}
+
+			.grid-baseline {
+				align-items: baseline;
+			}
+
+			.grid-stretch {
+				align-items: stretch;
+			}
+
+			grid-wrap{
+				flex-wrap: wrap;
+			}
+
+			grid-wrap-reverse{
+				flex-wrap: wrap-reverse;
+			}
+
+			.grid-cell {
+				flex: 1;
+			}
+
+			.grid-cell-autosize {
+				flex: none;
+			}
+
+			.grid-cell-flex{
+				flex: 0 1 auto;
+			}
+
+			grid-cell-first{
+				order: -1;
+			}
+
+			.grid-cell-start {
+				align-self: flex-start;
+			}
+
+			.grid-cell-end {
+				align-self: flex-end;
+			}
+
+			.grid-cell-center {
+				align-self: center;
+			}
+
+			.grid-cell-baseline {
+				align-self: baseline;
+			}
+
+			.grid-cell-stretch {
+				align-self: stretch;
+			}
+
+			grid-cell-grow {
+				flex-grow: 1;
+			}
+
+			grid-cell-shrink {
+				flex-shrink: 2;
+			}
+
+			hr {
+				padding: 0px 0px 0px 0px !important;
+				border-color: #666666ff !important;
+			}
+
+			.icon {
+				background-repeat: no-repeat;
+				display: block;
+			}
+
+			.icon-left{
+				margin-left: 10px;
+				margin-right: auto;
+			}
+
+			.icon-right{
+				margin-left: auto;
+				margin-right: 10px;
+			}
+
+			.icon-center{
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.icon-flex {
+				background-size: calc(60px - 10px - 10px);
+				height: calc(60px - 10px - 10px);
+				width: calc(60px - 10px - 10px);
+			}
+
+			.icon-12 {
+				background-size: 12px;
+				height: 12px;
+				width: 12px;
+			}
+
+			.icon-16 {
+				background-size: 16px;
+				height: 16px;
+				width: 16px;
+			}
+
+			.icon-24 {
+				background-size: 24px;
+				height: 24px;
+				width: 24px;
+			}
+
+			.icon-32 {
+				background-size: 32px;
+				height: 32px;
+				width: 32px;
+			}
 
-<style>
-	* {
-		max-width: 800px;
-		padding: 10px 10px 10px 10px;
-		margin: auto;
-		background: #333333ff;
-		color: #666666ff;
-		font-family: 'Open Sans', sans-serif !important;
-		text-align: center;
-	}
-
-	a {
-	color: #008066ff;
-	font-weight: bold;
-	border: none;
-	outline: none;
-	}
-
-	a:active,
-	a:focus,
-	a:link,
-	a:visited {
-		text-decoration: none;
-		outline: none;
-	}
-
-	a:hover {
-		color: #ffd140ff;
-		text-decoration: none;
-		outline: none;
-	}
-
-	#footer * {
-		padding: 10px 0px 0px 0px;
-	}
-
-	.grid {
-		display: flex;
-
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-
-		-webkit-transition: all 0.5s ease;
-		-moz-transition: all 0.5s ease;
-		-ms-transition: all 0.5s ease;
-		-o-transition: all 0.5s ease;
-		transition: all 0.5s ease;
-	}
-
-	.grid-column {
-		flex-direction: column;
-	}
-
-	.grid-column-reverse {
-		flex-direction: column-reverse;
-	}
-
-	.grid-row {
-		flex-direction: row;
-	}
-
-	.grid-row-reverse {
-		flex-direction: row-reverse;
-	}
-
-	.grid-left {
-		justify-content: flex-start;
-	}
-
-	.grid-right {
-		justify-content: flex-end;
-	}
-
-	.grid-center {
-		justify-content: center;
-	}
-
-	.grid-around {
-		justify-content: space-around;
-	}
-
-	.grid-between {
-		justify-content: space-between;
-	}
-
-	.grid-start {
-		align-items: flex-start;
-	}
-
-	.grid-end {
-		align-items: flex-end;
-	}
-
-	.grid-middle {
-		align-items: center;
-	}
-
-	.grid-baseline {
-		align-items: baseline;
-	}
-
-	.grid-stretch {
-		align-items: stretch;
-	}
-
-	grid-wrap{
-		flex-wrap: wrap;
-	}
-
-	grid-wrap-reverse{
-		flex-wrap: wrap-reverse;
-	}
-
-	.grid-cell {
-		flex: 1;
-	}
-
-	.grid-cell-autosize {
-		flex: none;
-	}
-
-	.grid-cell-flex{
-		flex: 0 1 auto;
-	}
-
-	grid-cell-first{
-		order: -1;
-	}
-
-	.grid-cell-start {
-		align-self: flex-start;
-	}
-
-	.grid-cell-end {
-		align-self: flex-end;
-	}
-
-	.grid-cell-center {
-		align-self: center;
-	}
-
-	.grid-cell-baseline {
-		align-self: baseline;
-	}
-
-	.grid-cell-stretch {
-		align-self: stretch;
-	}
-
-	grid-cell-grow {
-		flex-grow: 1;
-	}
-
-	grid-cell-shrink {
-		flex-shrink: 2;
-	}
-
-	hr {
-		padding: 0px 0px 0px 0px !important;
-		border-color: #666666ff !important;
-	}
-
-	.icon {
-		background-repeat: no-repeat;
-		display: block;
-	}
-
-	.icon-left{
-		margin-left: 10px;
-		margin-right: auto;
-	}
-
-	.icon-right{
-		margin-left: auto;
-		margin-right: 10px;
-	}
-
-	.icon-center{
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.icon-flex {
-		background-size: calc(60px - 10px - 10px);
-		height: calc(60px - 10px - 10px);
-		width: calc(60px - 10px - 10px);
-	}
-
-	.icon-12 {
-		background-size: 12px;
-		height: 12px;
-		width: 12px;
-	}
-
-	.icon-16 {
-		background-size: 16px;
-		height: 16px;
-		width: 16px;
-	}
-
-	.icon-24 {
-		background-size: 24px;
-		height: 24px;
-		width: 24px;
-	}
-
-	.icon-32 {
-		background-size: 32px;
-		height: 32px;
-		width: 32px;
-	}
-
-	.icon-64 {
-		background-size: 64px;
-		height: 64px;
-		width: 64px;
-	}
+			.icon-64 {
+				background-size: 64px;
+				height: 64px;
+				width: 64px;
+			}
 
-	.icon-96 {
-		background-size: 96px;
-		height: 96px;
-		width: 96px;
-	}
+			.icon-96 {
+				background-size: 96px;
+				height: 96px;
+				width: 96px;
+			}
 
-	.icon-128 {
-		background-size: 128px;
-		height: 128px;
-		width: 128px;
-	}
+			.icon-128 {
+				background-size: 128px;
+				height: 128px;
+				width: 128px;
+			}
 
-	.icon-256 {
-		background-size: 256px;
-		height: 256px;
-		width: 256px;
-	}
+			.icon-256 {
+				background-size: 256px;
+				height: 256px;
+				width: 256px;
+			}
 
-	img {
-		width: 512px
-	}
+			img {
+				width: 512px
+			}
 
-	.logo-black {
-		background-image: url(/logo/logo-black.svg);
-	}
+			.logo-black {
+				background-image: url(/logo/logo-black.svg);
+			}
 
-	.logo-blue {
-		background-image: url(/logo/logo-blue.svg);
-	}
+			.logo-blue {
+				background-image: url(/logo/logo-blue.svg);
+			}
 
-	.logo-fuschia {
-		background-image: url(/logo/logo-fuschia.svg);
-	}
+			.logo-fuschia {
+				background-image: url(/logo/logo-fuschia.svg);
+			}
 
-	.logo-green {
-		background-image: url(/logo/logo-green.svg);
-	}
+			.logo-green {
+				background-image: url(/logo/logo-green.svg);
+			}
 
-	.logo-grey {
-		background-image: url(/logo/logo-grey.svg);
-	}
+			.logo-grey {
+				background-image: url(/logo/logo-grey.svg);
+			}
 
-	.logo-orange {
-		background-image: url(/logo/logo-orange.svg);
-	}
+			.logo-orange {
+				background-image: url(/logo/logo-orange.svg);
+			}
 
-	.logo-purple {
-		background-image: url(/logo/logo-purple.svg);
-	}
+			.logo-purple {
+				background-image: url(/logo/logo-purple.svg);
+			}
 
-	.logo-red {
-		background-image: url(/logo/logo-red.svg);
-	}
+			.logo-red {
+				background-image: url(/logo/logo-red.svg);
+			}
 
-	.logo-teal {
-		background-image: url(/logo/logo-teal.svg);
-	}
+			.logo-teal {
+				background-image: url(/logo/logo-teal.svg);
+			}
 
-	.logo-yellow {
-		background-image: url(/logo/logo-yellow.svg);
-	}
+			.logo-yellow {
+				background-image: url(/logo/logo-yellow.svg);
+			}
 
-	html > ::-webkit-scrollbar {
-		display: none;
-	}
+			html > ::-webkit-scrollbar {
+				display: none;
+			}
 
-	body > ::-webkit-scrollbar {
-		display: none;
-	}
+			body > ::-webkit-scrollbar {
+				display: none;
+			}
 
-	::-webkit-scrollbar {
-		display: none;
-	}
+			::-webkit-scrollbar {
+				display: none;
+			}
 
 
-</style>
+		</style>
 
-<div class="grid grid-column grid-middle">
+		<meta name="title" content="Pew Pew Prints">
 
-	<div class="grid-cell">
+		<meta name="description" content="Foam Blaster Printed Parts + Mods : Pew! Pew!">
 
-		<h1>Welcome to Pew Pew Prints!</h1>
+		<meta name="keywords" content="foam, blaster, mods, custom, parts, darts, printing, shop, magazine, sights, stock, muzzle, barrel, trigger, grip, revving, performance, tactical, display, nerf, dart zone, adventure force, worker">
 
-	</div>
+		<meta name="robots" content="index, follow">
 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<div class="grid-cell">
+		<meta name="language" content="English">
 
-		<img src="/logo/logo-teal.svg">
+		<meta name="revisit-after" content="7 days">
 
-	</div>
+		<meta name="author" content="Nathanel Titane">
 
-</div>
+	</head>
 
-<hr>
-
-<div class="grid grid-column grid-middle">
-
-	<div class="grid-cell">
-
-		<img src="/models/display/magazine-well-wall-hanger-vertical-command-strip/render.png">
-
-	</div>
-
-
-	<div class="grid-cell">
-
-		<h3>MAGAZINE WELL WALL HANGER - VERTICAL // COMMAND STRIP</h3>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<p>SHIPPING // $15.00</p>
-
-	</div>
-
-</div>
-
-<div class="grid grid-row grid-middle">
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=243EFHN7XNDKE">[ BLACK PRINT // $18.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X3UDWQ7P44E58">[ GREY PRINT // $18.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=873PRCQGXL7GG">[ MODEL FILE // $8.00 ]</a>
-
-	</div>
-
-</div>
-
-<hr>
-
-<div class="grid grid-column grid-middle">
-
-	<div class="grid-cell">
-
-		<img src="/models/display/magazine-well-wall-hanger-horizontal-command-strip/render.png">
-
-	</div>
-
-
-	<div class="grid-cell">
-
-		<h3>MAGAZINE WELL WALL HANGER - HORIZONTAL // COMMAND STRIP</h3>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<p>SHIPPING // $15.00</p>
-
-	</div>
-
-</div>
-
-<div class="grid grid-row grid-middle">
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MJFAM4QVQWFJJ">[ BLACK PRINT // $9.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX47K72MTQPPL">[ GREY PRINT // $9.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KMTCEW3LX8SCC">[ MODEL FILE // $8.00 ]</a>
-
-	</div>
-
-</div>
-
-<hr>
-
-<div class="grid grid-column grid-middle">
-
-	<div class="grid-cell">
-
-		<img src="/models/tactical/magazine-clip-double-long-dart/render.png">
-
-	</div>
-
-
-	<div class="grid-cell">
-
-		<h3>MAGAZINE CLIP - DOUBLE - LONG DART // TRANSPORT + FLIP</h3>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<p>SHIPPING // $7.50</p>
-
-	</div>
-
-</div>
-
-<div class="grid grid-row grid-middle">
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2QZ674G76CW6Y">[ BLACK PRINT // $9.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVS62UZVCT92A">[ GREY PRINT // $9.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">[ MODEL FILE // $8.00 ]</a>
-
-	</div>
-
-</div>
-
-<hr>
-
-<div class="grid grid-column grid-middle">
-
-	<div class="grid-cell">
-
-		<img src="/models/tactical/magazine-clip-single-long-dart/render.png">
-
-	</div>
-
-
-	<div class="grid-cell">
-
-		<h3>MAGAZINE CLIP - SINGLE - LONG DART // TRANSPORT + FLIP</h3>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<p>SHIPPING // $7.50</p>
-
-	</div>
-
-</div>
-
-<div class="grid grid-row grid-middle">
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBTQQKG6QWFT4">[ BLACK PRINT // $5.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAUGTDBNPRNHC">[ GREY PRINT // $5.00 ]</a>
-
-	</div>
-
-	<div class="grid-cell">
-
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">[ MODEL FILE // $8.00 ]</a>
-
-	</div>
-
-</div>
-
-<hr>
-
-
-<div class="grid grid-column grid-middle">
-
-
-	<div class="grid-cell">
-
-		<h3>
-
-			// NOTICE //<br>
-
-			<br>
-
-			CURRENCY IS US DOLLAR.<br>
-
-			<br>
-
-			SHIPPING FEE ONLY APPLIES TO PRINT ORDERS.<br>
-
-			<br>
-
-			PEW PEW PRINTS ONLY OFFERS ITEMS THAT HAVE BEEN PRINTED, VALIDATED AND TESTED ON ACTUAL FOAM BLASTER MODELS!<br>
-
-			<br>
-
-			ALL ITEMS ARE ADVENTURE FORCE [ AFX ] / DART ZONE PRO [ DZP ] / DART ZONE MAX [ DZM ] / NERF [ NMX ] COMPATIBLE UNLESS OTHERWISE SPECIFIED.<br>
-
-			<br>
-
-			ITEMS ARE PRINTED TO ORDER.<br>
-
-			<br>
-
-			ALL ITEMS ARE INSPECTED AND MEASURED FOR TOLERANCE BEFORE BEING PACKAGED.<br>
-
-			<br>
-
-			PLEASE KEEP IN MIND THAT SINGLE ITEM PURCHASES ARE QUICKER TO SHIP!<br>
-
-			<br>
-
-			THANK YOU FOR YOUR SUPPORT,<br>
-			HAPPY FOAM FLINGING AND...<br>
-
-			<br>
-
-			<h1>PEW! PEW!</h1><br>
-
-		</h3>
-
-	</div>
-
-</div>
-
-<hr>
-
-<div id="footer">
-
-	<!-- footer -->
-
-	<div class="grid grid-row grid-middle grid-around">
-
-		<!-- home -->
+	<body>
 
 		<div class="grid grid-column grid-middle">
 
 			<div class="grid-cell">
 
-				<a class="icon icon-flex icon-center logo-teal" href="https://pewpewprints.com""></a>
+				<h1>Welcome to Pew Pew Prints!</h1>
 
 			</div>
 
+
 			<div class="grid-cell">
 
-				Home
+				<img src="/logo/logo-teal.svg">
 
 			</div>
 
 		</div>
 
-		<!-- contact -->
+		<hr>
 
 		<div class="grid grid-column grid-middle">
 
 			<div class="grid-cell">
 
-				<a class="icon icon-flex icon-center logo-yellow" href="mailto:nathanel.titane@gmail.com;?Subject=PEW! PEW! PRINTS + INQUIRY"></a>
+				<img src="/models/display/magazine-well-wall-hanger-vertical-command-strip/render.png">
+
+			</div>
+
+
+			<div class="grid-cell">
+
+				<h3>MAGAZINE WELL WALL HANGER - VERTICAL // COMMAND STRIP</h3>
 
 			</div>
 
 			<div class="grid-cell">
 
-				Contact
+				<p>SHIPPING // $15.00</p>
 
 			</div>
 
 		</div>
 
-		<!-- github -->
+		<div class="grid grid-row grid-middle">
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=243EFHN7XNDKE">[ BLACK PRINT // $18.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X3UDWQ7P44E58">[ GREY PRINT // $18.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=873PRCQGXL7GG">[ MODEL FILE // $8.00 ]</a>
+
+			</div>
+
+		</div>
+
+		<hr>
 
 		<div class="grid grid-column grid-middle">
 
 			<div class="grid-cell">
 
-				<a class="icon icon-flex icon-center logo-black" href="https://github.com/nathaneltitane/pewpewPrint ]s"></a>
+				<img src="/models/display/magazine-well-wall-hanger-horizontal-command-strip/render.png">
+
+			</div>
+
+
+			<div class="grid-cell">
+
+				<h3>MAGAZINE WELL WALL HANGER - HORIZONTAL // COMMAND STRIP</h3>
 
 			</div>
 
 			<div class="grid-cell">
 
-				Github
+				<p>SHIPPING // $15.00</p>
 
 			</div>
 
 		</div>
 
-		<!-- donations -->
+		<div class="grid grid-row grid-middle">
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MJFAM4QVQWFJJ">[ BLACK PRINT // $9.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX47K72MTQPPL">[ GREY PRINT // $9.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KMTCEW3LX8SCC">[ MODEL FILE // $8.00 ]</a>
+
+			</div>
+
+		</div>
+
+		<hr>
 
 		<div class="grid grid-column grid-middle">
 
 			<div class="grid-cell">
 
-				<a class="icon icon-flex icon-center logo-blue" href="https://www.paypal.com/donate/?hosted_button_id=2WZT7PCW3XDX6"></a>
+				<img src="/models/tactical/magazine-clip-double-long-dart/render.png">
+
+			</div>
+
+
+			<div class="grid-cell">
+
+				<h3>MAGAZINE CLIP - DOUBLE - LONG DART // TRANSPORT + FLIP</h3>
 
 			</div>
 
 			<div class="grid-cell">
 
-				Donate
+				<p>SHIPPING // $7.50</p>
 
 			</div>
 
 		</div>
 
-	</div>
+		<div class="grid grid-row grid-middle">
 
-</div>
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2QZ674G76CW6Y">[ BLACK PRINT // $9.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVS62UZVCT92A">[ GREY PRINT // $9.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">[ MODEL FILE // $8.00 ]</a>
+
+			</div>
+
+		</div>
+
+		<hr>
+
+		<div class="grid grid-column grid-middle">
+
+			<div class="grid-cell">
+
+				<img src="/models/tactical/magazine-clip-single-long-dart/render.png">
+
+			</div>
+
+
+			<div class="grid-cell">
+
+				<h3>MAGAZINE CLIP - SINGLE - LONG DART // TRANSPORT + FLIP</h3>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<p>SHIPPING // $7.50</p>
+
+			</div>
+
+		</div>
+
+		<div class="grid grid-row grid-middle">
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBTQQKG6QWFT4">[ BLACK PRINT // $5.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAUGTDBNPRNHC">[ GREY PRINT // $5.00 ]</a>
+
+			</div>
+
+			<div class="grid-cell">
+
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">[ MODEL FILE // $8.00 ]</a>
+
+			</div>
+
+		</div>
+
+		<hr>
+
+
+		<div class="grid grid-column grid-middle">
+
+
+			<div class="grid-cell">
+
+				<h3>
+
+					// NOTICE //<br>
+
+					<br>
+
+					CURRENCY IS US DOLLAR.<br>
+
+					<br>
+
+					SHIPPING FEE ONLY APPLIES TO PRINT ORDERS.<br>
+
+					<br>
+
+					PEW PEW PRINTS ONLY OFFERS ITEMS THAT HAVE BEEN PRINTED, VALIDATED AND TESTED ON ACTUAL FOAM BLASTER MODELS!<br>
+
+					<br>
+
+					ALL ITEMS ARE ADVENTURE FORCE [ AFX ] / DART ZONE PRO [ DZP ] / DART ZONE MAX [ DZM ] / NERF [ NMX ] COMPATIBLE UNLESS OTHERWISE SPECIFIED.<br>
+
+					<br>
+
+					ITEMS ARE PRINTED TO ORDER.<br>
+
+					<br>
+
+					ALL ITEMS ARE INSPECTED AND MEASURED FOR TOLERANCE BEFORE BEING PACKAGED.<br>
+
+					<br>
+
+					PLEASE KEEP IN MIND THAT SINGLE ITEM PURCHASES ARE QUICKER TO SHIP!<br>
+
+					<br>
+
+					THANK YOU FOR YOUR SUPPORT,<br>
+					HAPPY FOAM FLINGING AND...<br>
+
+					<br>
+
+					<h1>PEW! PEW!</h1><br>
+
+				</h3>
+
+			</div>
+
+		</div>
+
+		<hr>
+
+		<div id="footer">
+
+			<!-- footer -->
+
+			<div class="grid grid-row grid-middle grid-around">
+
+				<!-- home -->
+
+				<div class="grid grid-column grid-middle">
+
+					<div class="grid-cell">
+
+						<a class="icon icon-flex icon-center logo-teal" href="https://pewpewprints.com""></a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						Home
+
+					</div>
+
+				</div>
+
+				<!-- contact -->
+
+				<div class="grid grid-column grid-middle">
+
+					<div class="grid-cell">
+
+						<a class="icon icon-flex icon-center logo-yellow" href="mailto:nathanel.titane@gmail.com;?Subject=PEW! PEW! PRINTS + INQUIRY"></a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						Contact
+
+					</div>
+
+				</div>
+
+				<!-- github -->
+
+				<div class="grid grid-column grid-middle">
+
+					<div class="grid-cell">
+
+						<a class="icon icon-flex icon-center logo-black" href="https://github.com/nathaneltitane/pewpewPrint ]s"></a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						Github
+
+					</div>
+
+				</div>
+
+				<!-- donations -->
+
+				<div class="grid grid-column grid-middle">
+
+					<div class="grid-cell">
+
+						<a class="icon icon-flex icon-center logo-blue" href="https://www.paypal.com/donate/?hosted_button_id=2WZT7PCW3XDX6"></a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						Donate
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
