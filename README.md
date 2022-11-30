@@ -15,11 +15,11 @@ All items are Adventure Force / Dart Zone / Nerf compatible unless otherwise spe
 List of owned foam blasters to test with [ and what has been tested ]:
 
 - Adventure Force Spectrum
- - Magazine Clip Hanger - Horizontal
- - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal
+  - Magazine Clip Hanger - Vertical
 - Adventure Force Aeon Pro
- - Magazine Clip Hanger - Horizontal
- - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal
+  - Magazine Clip Hanger - Vertical
 - Adventure Force Nexus Pro
  - Magazine Clip Hanger - Horizontal
  - Magazine Clip Hanger - Vertical
