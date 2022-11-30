@@ -10,34 +10,34 @@
 
 Foam Blaster Printed Parts + Mods : Pew! Pew!
 
-All items are Adventure Force / Dart Zone / Nerf compatible unless otherwise specified.
+All items are Adventure Force [ AFX ] / Dart Zone Pro/Max [ DZP ] [ DZM ] / Nerf [ NMX ]compatible unless otherwise specified.
 
 List of owned foam blasters to test with [ and what has been tested ]:
 
-- Adventure Force Spectrum
+- [ AFX ] Spectrum
   - Magazine Clip Hanger - Horizontal
   - Magazine Clip Hanger - Vertical
-- Adventure Force Aeon Pro
+- [ AFX ] Aeon Pro
   - Magazine Clip Hanger - Horizontal
   - Magazine Clip Hanger - Vertical
-- Adventure Force Nexus Pro
+- [ AFX ] Nexus Pro
   - Magazine Clip Hanger - Horizontal
   - Magazine Clip Hanger - Vertical
-- Adventure Force Conquest Pro
-- Dart Zone Pro MK 1.2
+- [ AFX ] Conquest Pro
+- [ DZP ] MK 1.2
   - Magazine Clip Hanger - Horizontal
   - Magazine Clip Hanger - Vertical
-- Dart Zone Pro MK 2.1
-- Dart Zone Pro MK 3
+- [ DZP ] MK 2.1
+- [ DZP ] MK 3
   - Magazine Clip Hanger - Horizontal
   - Magazine Clip Hanger - Vertical
-- Dart Zone Max Stryker
+- [ DZM ] Stryker
   - Magazine Clip Hanger - Horizontal
   - Magazine Clip Hanger - Vertical
-- Dart Zone Max Tomcat
-- Dart Zone Max Deuce Pro
-- Dart Zone Max Dictator
-- Nerf Modulus Mediator
+- [ DZM ] Tomcat
+- [ DZM ] Deuce Pro
+- [ DZM ] Dictator
+- [ NMX ] Mediator
 
 ---
 
