@@ -1,4 +1,4 @@
-![pewpewprints](https://raw.githubusercontent.com/nathaneltitane/termux/main/pewpewprints.svg)
+![pewpewprints](https://raw.githubusercontent.com/nathaneltitane/pewpewprints/main/pewpewprints.svg)
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-000000.svg?style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=QG58TMRHNSZAU)
 
@@ -7,6 +7,10 @@
 ---
 
 ### Welcome to Pew Pew Prints!
+
+Foam Blaster Printed Parts + Mods : Pew! Pew!
+
+All
 
 ---
 
