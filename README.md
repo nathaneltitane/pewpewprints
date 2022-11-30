@@ -15,25 +15,27 @@ All items are Adventure Force [ AFX ] / Dart Zone Pro/Max [ DZP ] [ DZM ] / Nerf
 List of owned Foam Blasters models and what has been tested so far:
 
 - [ AFX ] Spectrum
-  - Magazine Clip Hanger - Horizontal
-  - Magazine Clip Hanger - Vertical
+  - Magazine Clip - Double - Trasport + Flip
+  - Magazine Clip - Single - Trasport + Flip
+  - Magazine Clip Hanger - Horizontal - Command Strip
+  - Magazine Clip Hanger - Vertical - Command Strip
 - [ AFX ] Aeon Pro
-  - Magazine Clip Hanger - Horizontal
-  - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal - Command Strip
+  - Magazine Clip Hanger - Vertical - Command Strip
 - [ AFX ] Nexus Pro
-  - Magazine Clip Hanger - Horizontal
-  - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal - Command Strip
+  - Magazine Clip Hanger - Vertical - Command Strip
 - [ AFX ] Conquest Pro
 - [ DZP ] MK 1.2
-  - Magazine Clip Hanger - Horizontal
-  - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal - Command Strip
+  - Magazine Clip Hanger - Vertical - Command Strip
 - [ DZP ] MK 2.1
 - [ DZP ] MK 3
-  - Magazine Clip Hanger - Horizontal
-  - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal - Command Strip
+  - Magazine Clip Hanger - Vertical - Command Strip
 - [ DZM ] Stryker
-  - Magazine Clip Hanger - Horizontal
-  - Magazine Clip Hanger - Vertical
+  - Magazine Clip Hanger - Horizontal - Command Strip
+  - Magazine Clip Hanger - Vertical - Command Strip
 - [ DZM ] Tomcat
 - [ DZM ] Deuce Pro
 - [ DZM ] Dictator
