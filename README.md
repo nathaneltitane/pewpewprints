@@ -10,9 +10,9 @@
 
 Foam Blaster Printed Parts + Mods : Pew! Pew!
 
-All items are Adventure Force [ AFX ] / Dart Zone Pro/Max [ DZP ] [ DZM ] / Nerf [ NMX ]compatible unless otherwise specified.
+All items are Adventure Force [ AFX ] / Dart Zone Pro/Max [ DZP ] [ DZM ] / Nerf [ NMX ] compatible unless otherwise specified.
 
-List of owned foam blasters to test with [ and what has been tested ]:
+List of owned Foam Blasters models and what has been tested so far:
 
 - [ AFX ] Spectrum
   - Magazine Clip Hanger - Horizontal
