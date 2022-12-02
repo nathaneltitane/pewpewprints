@@ -8,7 +8,7 @@
 
 ### Welcome to [Pew! Pew! Prints](https://pewpewprints.com)!
 
-Foam Blaster Printed Parts + Mods : Pew! Pew!
+Foam Blaster Printed Parts + Mods: Pew! Pew!
 
 All items are Adventure Force [ AFX ] / Dart Zone Pro/Max [ DZP ] [ DZM ] / Nerf [ NMX ] compatible unless otherwise specified.
 
