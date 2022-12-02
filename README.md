@@ -10,7 +10,12 @@
 
 Foam Blaster Printed Parts + Mods: Pew! Pew!
 
-All items are Adventure Force [ AFX ] / Dart Zone Pro/Max [ DZP ] [ DZM ] / Nerf [ NMX ] compatible unless otherwise specified.
+All items are compatible with the following brand names (unless otherwise specified):
+
+-Adventure Force [ AFX ]
+-Dart Zone Pro [ DZP ]
+-Dart Zone Max [ DZM ]
+-Nerf [ NMX ]
 
 List of owned Foam Blasters models and what has been tested so far:
 
