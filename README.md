@@ -6,7 +6,7 @@
 
 ---
 
-### Welcome to [Pew! Pew! Prints](https://pewpewprints.com)!
+### Welcome to [Pew! Pew! Prints](https://pewpewprints.com)
 
 Foam Blaster Printed Parts + Mods: Pew! Pew!
 
