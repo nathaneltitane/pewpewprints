@@ -1,0 +1,22 @@
+a {
+	color: #008066ff;
+	display: block;
+	font-weight: normal;
+	border: none;
+	outline: none;
+}
+
+a:active,
+a:focus,
+a:link,
+a:visited {
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover {
+	color: #ffd140ff;
+	text-decoration: none;
+	outline: none;
+}
+

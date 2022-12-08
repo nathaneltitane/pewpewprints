@@ -4,475 +4,34 @@
 
 	<head>
 
-		<style>
+		<!-- css -->
 
-			* {
-				background: #333333ff;
-				color: #666666ff;
-				font-family: 'Open Sans', sans-serif !important;
-				text-align: center;
-				box-sizing: border-box;
-				user-select: none;
-				transition: all 0.25s ease;
-			}
+		<link rel="stylesheet" href="/css/css.css" type="text/css" />
 
-			body {
-				max-width: 800px;
-				margin: auto;
-				padding: 10px 10px 10px 10px;
-			}
+		<!-- libraries -->
 
-			a {
-				color: #008066ff;
-				font-weight: bold;
-				border: none;
-				outline: none;
-			}
+		<script src="/javascript/jquery-3.4.1.min.js" type="text/javascript"></script>
 
-			a:active,
-			a:focus,
-			a:link,
-			a:visited {
-				text-decoration: none;
-				outline: none;
-			}
+		<!-- scripts -->
 
-			a:hover {
-				color: #ffd140ff;
-				text-decoration: none;
-				outline: none;
-			}
-
-			#footer * {
-				min-width: auto;
-				padding: 10px 0 0 0;
-			}
-
-			.grid {
-				display: flex;
-				transition: all 0.5s ease;
-			}
-
-			.grid-column {
-				flex-direction: column;
-			}
-
-			.grid-column-reverse {
-				flex-direction: column-reverse;
-			}
-
-			.grid-row {
-				flex-direction: row;
-			}
-
-			.grid-row-reverse {
-				flex-direction: row-reverse;
-			}
-
-			.grid-left {
-				justify-content: flex-start;
-			}
-
-			.grid-right {
-				justify-content: flex-end;
-			}
-
-			.grid-center {
-				justify-content: center;
-			}
-
-			.grid-around {
-				justify-content: space-around;
-			}
-
-			.grid-between {
-				justify-content: space-between;
-			}
-
-			.grid-start {
-				align-items: flex-start;
-			}
-
-			.grid-end {
-				align-items: flex-end;
-			}
-
-			.grid-middle {
-				align-items: center;
-			}
-
-			.grid-baseline {
-				align-items: baseline;
-			}
-
-			.grid-stretch {
-				align-items: stretch;
-			}
-
-			grid-wrap {
-				flex-wrap: wrap;
-			}
-
-			grid-wrap-reverse {
-				flex-wrap: wrap-reverse;
-			}
-
-			.grid-cell {
-				flex: 1;
-			}
-
-			.grid-cell-autosize {
-				flex: none;
-			}
-
-			.grid-cell-flex {
-				flex: 0 1 auto;
-			}
-
-			grid-cell-first {
-				order: -1;
-			}
-
-			.grid-cell-start {
-				align-self: flex-start;
-			}
-
-			.grid-cell-end {
-				align-self: flex-end;
-			}
-
-			.grid-cell-center {
-				align-self: center;
-			}
-
-			.grid-cell-baseline {
-				align-self: baseline;
-			}
-
-			.grid-cell-stretch {
-				align-self: stretch;
-			}
-
-			grid-cell-grow {
-				flex-grow: 1;
-			}
-
-			grid-cell-shrink {
-				flex-shrink: 2;
-			}
-
-			hr {
-				margin: 10px 0px 0px 0px;
-				border-top: 1px solid #666666ff;
-				border-right: none;
-				border-bottom: none;
-				border-left: none;
-			}
-
-			.icon {
-				background-repeat: no-repeat;
-				display: block;
-			}
-
-			.icon-left {
-				margin-left: 10px;
-				margin-right: auto;
-			}
-
-			.icon-right {
-				margin-left: auto;
-				margin-right: 10px;
-			}
-
-			.icon-center {
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			.icon-flex {
-				background-size: calc(60px - 10px - 10px);
-				height: calc(60px - 10px - 10px);
-				width: calc(60px - 10px - 10px);
-			}
-
-			.icon-12 {
-				background-size: 12px;
-				height: 12px;
-				width: 12px;
-			}
-
-			.icon-16 {
-				background-size: 16px;
-				height: 16px;
-				width: 16px;
-			}
-
-			.icon-24 {
-				background-size: 24px;
-				height: 24px;
-				width: 24px;
-			}
-
-			.icon-32 {
-				background-size: 32px;
-				height: 32px;
-				width: 32px;
-			}
-
-			.icon-64 {
-				background-size: 64px;
-				height: 64px;
-				width: 64px;
-			}
-
-			.icon-96 {
-				background-size: 96px;
-				height: 96px;
-				width: 96px;
-			}
-
-			.icon-128 {
-				background-size: 128px;
-				height: 128px;
-				width: 128px;
-			}
-
-			.icon-256 {
-				background-size: 256px;
-				height: 256px;
-				width: 256px;
-			}
-
-			img {
-				height: auto;
-				width: 100%;
-			}
-
-			.logo-black {
-				background-image: url(/logo/logo-black.svg);
-			}
-
-			.logo-blue {
-				background-image: url(/logo/logo-blue.svg);
-			}
-
-			.logo-fuschia {
-				background-image: url(/logo/logo-fuschia.svg);
-			}
-
-			.logo-green {
-				background-image: url(/logo/logo-green.svg);
-			}
-
-			.logo-grey {
-				background-image: url(/logo/logo-grey.svg);
-			}
-
-			.logo-orange {
-				background-image: url(/logo/logo-orange.svg);
-			}
-
-			.logo-purple {
-				background-image: url(/logo/logo-purple.svg);
-			}
-
-			.logo-red {
-				background-image: url(/logo/logo-red.svg);
-			}
-
-			.logo-teal {
-				background-image: url(/logo/logo-teal.svg);
-			}
-
-			.logo-yellow {
-				background-image: url(/logo/logo-yellow.svg);
-			}
-
-			html> ::-webkit-scrollbar {
-				display: none;
-			}
-
-			body> ::-webkit-scrollbar {
-				display: none;
-			}
-
-			::-webkit-scrollbar {
-				display: none;
-			}
-
-		</style>
-
-		<!-- charset -->
-
-		<meta charset="UTF-8" />
-
-		<!-- content -->
-
-		<meta content="text/html" />
-
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-		<!-- distribution -->
-
-		<meta name="distribution" content="global" />
-
-		<!-- language -->
-
-		<meta name="language" content="EN" />
-
-		<meta name="language" content="english" />
-
-		<meta property="og:locale" content="en_US" />
-
-		<!-- authorship -->
-
-		<meta name="author" content="Nathanel Titane" />
-
-		<!-- copyright -->
-
-		<meta name="copyright" content="© Nathanel Titane" />
-
-		<!-- chrome -->
-
-		<meta name="theme-color" content="#333333ff" />
-
-		<!-- favicon -->
-
-		<link rel="icon" href="/logo/logo-teal.svg" type="image/png" sizes="192x192" />
-
-		<link rel="icon" href="/logo/logo-teal.svg" type="image/x-icon" />
-
-		<meta property="og:image" content="/logo/logo-teal.svg" />
-
-		<!-- viewport -->
-
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-
-		<!-- apple -->
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-		<!-- robots -->
-
-		<meta name="robots" content="index, follow" />
-
-		<meta name="revisit-after" content="7 days" />
-
-		<!-- site -->
-
-		<meta property="og:type" content="website" />
-
-		<meta property="og:site_name" content="http://pewpewprints.com" />
-
-		<!-- url -->
-
-		<meta name="identifier-url" content="http://pewpewprints.com/" />
-
-		<meta property="og:url" content="http://pewpewprints.com" />
-
-		<!-- title -->
-
-		<title>Pew! Pew! Prints</title>
-
-		<meta name="title" content="Pew! Pew! Prints" />
-
-		<meta property="og:title" content="Pew! Pew! Prints" />
-
-		<!-- description -->
-
-		<meta name="description" content="Foam Blaster Printed Parts + Mods: Pew! Pew!" />
-
-		<meta property="og:description" content="Foam Blaster Printed Parts + Mods: Pew! Pew!" />
-
-		<!-- abstract -->
-
-		<meta name="abstract" content="Foam Blaster Printed Parts + Mods: Pew! Pew!" />
-
-		<!-- keywords -->
-
-		<meta name="keywords" content="foam, blaster, printed , parts, mods, custom, parts, darts, 3d, printing, shop, magazine, sights, stock, muzzle, barrel, trigger, grip, revving, performance, tactical, display, nerf, dart zone, adventure force, worker">
-
-		<meta property="og:keywords" content="foam, blaster, printed , parts, mods, custom, parts, darts, 3d, printing, shop, magazine, sights, stock, muzzle, barrel, trigger, grip, revving, performance, tactical, display, nerf, dart zone, adventure force, worker">
+		<script src="/javascript/modules.js" type="text/javascript"></script>
 
 	</head>
 
 	<body>
 
-		<div class="grid grid-column">
-
-			<div class="grid-cell">
-
-				<h1>Welcome to Pew Pew Prints!</h1>
-				<h2>Foam Blaster Printed Parts + Mods : Pew! Pew!</h2>
-
-			</div>
-
-
-			<div class="grid-cell">
-
-				<img src="/logo/logo-teal.svg">
-
-			</div>
+		<div id="background">
 
 		</div>
 
-		<hr>
+		<div class="container text-center">
 
-		<div class="grid grid-column">
-
-			<div class="grid-cell">
-
-				<img src="/models/display/magazine-well-wall-hanger-vertical-command-strip/render.png">
-
-			</div>
-
-
-			<div class="grid-cell">
-
-				<h3>MAGAZINE WELL WALL HANGER - VERTICAL // COMMAND STRIP</h3>
-
-			</div>
-
-			<div class="grid-cell">
-
-				<h4>SHIPPING // $15.00</h4>
-
-			</div>
-
-			<div class="grid grid-row">
+			<div class="grid grid-column grid-center grid-between">
 
 				<div class="grid-cell">
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=243EFHN7XNDKE">
-
-						BLACK PRINT</br>
-						$18.00
-
-					</a>
-
-				</div>
-
-				<div class="grid-cell">
-
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X3UDWQ7P44E58">
-
-						GREY PRINT</br>
-						$18.00
-
-					</a>
-
-				</div>
-
-				<div class="grid-cell">
-
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=873PRCQGXL7GG">
-
-						MODEL FILE</br>
-						$8.00
-
-					</a>
+					<h1>Welcome to Pew Pew Prints!</h1>
+					<h2>Foam Blaster Printed Parts + Mods : Pew! Pew!</h2>
 
 				</div>
 
@@ -482,121 +41,58 @@
 
 		<hr>
 
-		<div class="grid grid-column">
+		<div class="container text-center">
 
-			<div class="grid-cell">
-
-				<img src="/models/display/magazine-well-wall-hanger-horizontal-command-strip/render.png">
-
-			</div>
-
-
-			<div class="grid-cell">
-
-				<h3>MAGAZINE WELL WALL HANGER - HORIZONTAL // COMMAND STRIP</h3>
-
-			</div>
-
-			<div class="grid-cell">
-
-				<h4>SHIPPING // $15.00</h4>
-
-			</div>
-
-			<div class="grid grid-row">
+			<div class="grid grid-column grid-center grid-between">
 
 				<div class="grid-cell">
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MJFAM4QVQWFJJ">
+					<h3>
 
-						BLACK PRINT</br>
-						$9.00
+						// NOTICE //<br>
 
-					</a>
+						<br>
 
-				</div>
+						CURRENCY IS US DOLLAR.<br>
 
-				<div class="grid-cell">
+						<br>
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX47K72MTQPPL">
+						SHIPPING FEE ONLY APPLIES TO PRINT ORDERS AND IS CALCULATED BY VOLUME/WEIGHT.<br>
 
-						GREY PRINT</br>
-						$9.00
+						<br>
 
-					</a>
+						PEW PEW PRINTS ONLY OFFERS ITEMS THAT HAVE BEEN PRINTED, VALIDATED AND TESTED ON ACTUAL FOAM BLASTER MODELS!<br>
 
-				</div>
+						<br>
 
-				<div class="grid-cell">
+						ALL ITEMS ARE COMPATIBLE WITH THE FOLLOWING BRAND NAMES (UNLESS OTHERWISE SPECIFIED):</br>
+						- ADVENTURE FORCE [ AFX ]</br>
+						- DART ZONE PRO [ DZP ]</br>
+						- DART ZONE MAX [ DZM ]</br>
+						- NERF [ NMX ]</br>
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KMTCEW3LX8SCC">
+						<br>
 
-						MODEL FILE</br>
-						$8.00
+						ITEMS ARE PRINTED TO ORDER.<br>
 
-					</a>
+						<br>
 
-				</div>
+						ORDER ITEMS ARE INSPECTED FOR QUALITY AND MEASURED TO ENSURE TOLERANCE PRECISION BEFORE BEING SHIPPED.<br>
 
-			</div>
+						<br>
 
-		</div>
+						PLEASE KEEP IN MIND THAT SINGLE ITEM PURCHASES ARE QUICKER TO SHIP!<br>
 
-		<hr>
+						<br>
 
-		<div class="grid grid-column">
+						THANK YOU FOR YOUR SUPPORT,<br>
+						HAPPY FOAM FLINGING AND...<br>
 
-			<div class="grid-cell">
+						<br>
 
-				<img src="/models/tactical/magazine-clip-double-long-dart/render.png">
+						<h1>PEW! PEW!</h1><br>
 
-			</div>
-
-
-			<div class="grid-cell">
-
-				<h3>MAGAZINE CLIP - DOUBLE - LONG DART // TRANSPORT + FLIP</h3>
-
-			</div>
-
-			<div class="grid-cell">
-
-				<h4>SHIPPING // $7.50</h4>
-
-			</div>
-
-			<div class="grid grid-row">
-
-				<div class="grid-cell">
-
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2QZ674G76CW6Y">
-
-						BLACK PRINT</br>
-						$9.00
-
-					</a>
-
-				</div>
-
-				<div class="grid-cell">
-
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVS62UZVCT92A">
-
-						GREY PRINT</br>
-						$9.00
-
-					</a>
-
-				</div>
-
-				<div class="grid-cell">
-
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">
-
-						MODEL FILE</br>
-						$8.00
-
-					</a>
+					</h3>
 
 				</div>
 
@@ -606,59 +102,56 @@
 
 		<hr>
 
-		<div class="grid grid-column">
+		<div class="container text-center">
 
-			<div class="grid-cell">
-
-				<img src="/models/tactical/magazine-clip-single-long-dart/render.png">
-
-			</div>
-
-
-			<div class="grid-cell">
-
-				<h3>MAGAZINE CLIP - SINGLE - LONG DART // TRANSPORT + FLIP</h3>
-
-			</div>
-
-			<div class="grid-cell">
-
-				<h4>SHIPPING // $7.50</h4>
-
-			</div>
-
-			<div class="grid grid-row">
+			<div class="grid grid-column grid-center grid-between">
 
 				<div class="grid-cell">
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBTQQKG6QWFT4">
-
-						BLACK PRINT</br>
-						$5.00
-
-					</a>
+					<h3>MAGAZINE WELL WALL HANGER - VERTICAL // COMMAND STRIP</h3>
 
 				</div>
 
 				<div class="grid-cell">
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAUGTDBNPRNHC">
-
-						GREY PRINT</br>
-						$5.00
-
-					</a>
+					<img src="/models/display/magazine-well-wall-hanger-long-dart-vertical-command-strip/render.png">
 
 				</div>
 
-				<div class="grid-cell">
+				<div class="grid grid-row">
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">
+					<div class="grid-cell">
 
-						MODEL FILE</br>
-						$8.00
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=243EFHN7XNDKE">
 
-					</a>
+							BLACK PRINT</br>
+							$18.00
+
+						</a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X3UDWQ7P44E58">
+
+							GREY PRINT</br>
+							$18.00
+
+						</a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=873PRCQGXL7GG">
+
+							MODEL FILE</br>
+							$8.00
+
+						</a>
+
+					</div>
 
 				</div>
 
@@ -666,143 +159,192 @@
 
 		</div>
 
-
 		<hr>
 
+		<div class="container text-center">
 
-		<div class="grid grid-column">
+			<div class="grid grid-column grid-center grid-between">
 
+				<div class="grid-cell">
 
-			<div class="grid-cell">
+					<h3>MAGAZINE WELL WALL HANGER - HORIZONTAL // COMMAND STRIP</h3>
 
-				<h3>
+				</div>
 
-					// NOTICE //<br>
+				<div class="grid-cell">
 
-					<br>
+					<img src="/models/display/magazine-well-wall-hanger-long-dart-horizontal-command-strip/render.png">
 
-					CURRENCY IS US DOLLAR.<br>
+				</div>
 
-					<br>
+				<div class="grid grid-row">
 
-					SHIPPING FEE ONLY APPLIES TO PRINT ORDERS.<br>
+					<div class="grid-cell">
 
-					<br>
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MJFAM4QVQWFJJ">
 
-					PEW PEW PRINTS ONLY OFFERS ITEMS THAT HAVE BEEN PRINTED, VALIDATED AND TESTED ON ACTUAL FOAM BLASTER MODELS!<br>
+							BLACK PRINT</br>
+							$9.00
 
-					<br>
+						</a>
 
-					ALL ITEMS ARE ADVENTURE FORCE [ AFX ] / DART ZONE PRO [ DZP ] / DART ZONE MAX [ DZM ] / NERF [ NMX ] COMPATIBLE UNLESS OTHERWISE SPECIFIED.<br>
+					</div>
 
-					<br>
+					<div class="grid-cell">
 
-					ITEMS ARE PRINTED TO ORDER.<br>
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX47K72MTQPPL">
 
-					<br>
+							GREY PRINT</br>
+							$9.00
 
-					ORDER ITEMS ARE INSPECTED FOR QUALITY AND MEASURED TO ENSURE TOLERANCE PRECISION BEFORE BEING SHIPPED.<br>
+						</a>
 
-					<br>
+					</div>
 
-					PLEASE KEEP IN MIND THAT SINGLE ITEM PURCHASES ARE QUICKER TO SHIP!<br>
+					<div class="grid-cell">
 
-					<br>
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KMTCEW3LX8SCC">
 
-					THANK YOU FOR YOUR SUPPORT,<br>
-					HAPPY FOAM FLINGING AND...<br>
+							MODEL FILE</br>
+							$8.00
 
-					<br>
+						</a>
 
-					<h1>PEW! PEW!</h1><br>
+					</div>
 
-				</h3>
+				</div>
 
 			</div>
 
 		</div>
 
 		<hr>
+
+		<div class="container text-center">
+
+			<div class="grid grid-column grid-center grid-between">
+
+				<div class="grid-cell">
+
+					<h3>MAGAZINE CLIP - DOUBLE - LONG DART // TRANSPORT + FLIP</h3>
+
+				</div>
+
+				<div class="grid-cell">
+
+					<img src="/models/tactical/magazine-clip-long-dart-double/render.png">
+
+				</div>
+
+				<div class="grid grid-row">
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2QZ674G76CW6Y">
+
+							BLACK PRINT</br>
+							$9.00
+
+						</a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVS62UZVCT92A">
+
+							GREY PRINT</br>
+							$9.00
+
+						</a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">
+
+							MODEL FILE</br>
+							$8.00
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<hr>
+
+		<div class="container text-center">
+
+			<div class="grid grid-column grid-center grid-between">
+
+				<div class="grid-cell">
+
+					<h3>MAGAZINE CLIP - SINGLE - LONG DART // TRANSPORT + FLIP</h3>
+
+				</div>
+
+				<div class="grid-cell">
+
+					<img src="/models/tactical/magazine-clip-long-dart-single/render.png">
+
+				</div>
+
+				<div class="grid grid-row">
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBTQQKG6QWFT4">
+
+							BLACK PRINT</br>
+							$5.00
+
+						</a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAUGTDBNPRNHC">
+
+							GREY PRINT</br>
+							$5.00
+
+						</a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UZN2CKY9D9AFY">
+
+							MODEL FILE</br>
+							$8.00
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="container footer">
+
+			<!-- footer height compensation -->
+
+		</div>
 
 		<div id="footer">
 
-			<!-- footer -->
-
-			<div class="grid grid-row grid-around">
-
-				<!-- home -->
-
-				<div class="grid grid-column">
-
-					<div class="grid-cell">
-
-						<a class="icon icon-flex icon-center logo-teal" href="https://pewpewprints.com""></a>
-
-					</div>
-
-					<div class="grid-cell">
-
-						Home
-
-					</div>
-
-				</div>
-
-				<!-- contact -->
-
-				<div class="grid grid-column">
-
-					<div class="grid-cell">
-
-						<a class="icon icon-flex icon-center logo-yellow" href="mailto:nathanel.titane@gmail.com;?Subject=PEW! PEW! PRINTS + INQUIRY"></a>
-
-					</div>
-
-					<div class="grid-cell">
-
-						Contact
-
-					</div>
-
-				</div>
-
-				<!-- github -->
-
-				<div class="grid grid-column">
-
-					<div class="grid-cell">
-
-						<a class="icon icon-flex icon-center logo-black" href="https://github.com/nathaneltitane/pewpewprints"></a>
-
-					</div>
-
-					<div class="grid-cell">
-
-						Github
-
-					</div>
-
-				</div>
-
-				<!-- donations -->
-
-				<div class="grid grid-column">
-
-					<div class="grid-cell">
-
-						<a class="icon icon-flex icon-center logo-blue" href="https://www.paypal.com/donate/?hosted_button_id=2WZT7PCW3XDX6"></a>
-
-					</div>
-
-					<div class="grid-cell">
-
-						Donate
-
-					</div>
-
-				</div>
-
-			</div>
+		</div>
 
 		</div>
 

@@ -1,0 +1,64 @@
+.drawer {
+	background: #bbbbbbff;
+	height: 100%;
+	width: 325px;
+	right: -325px;
+	top: 0px;
+	position: fixed;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	z-index: 999;
+}
+
+.drawer-button {
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: auto;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10px 10px 10px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+
+	animation-name: drawer-open;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.drawer-open .drawer {
+	top: 0px;
+	right: 0px;
+	overflow: overlay;
+}
+
+.drawer a {
+	margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	overflow: hidden;
+}
+
+@keyframes drawer-open {
+	0% {right: 0px;}
+
+	100% {right: 325px;}
+
+}
+
+.list {
+
+}
+
+.list:last-of-type {
+
+
+}
+
+.category {
+	padding: 10px 0px 10px 0px;
+}
+
+.category br {
+	display: none;
+}
+

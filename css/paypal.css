@@ -1,0 +1,22 @@
+.paypal {
+	position: fixed;
+	top: 0px;;
+	left: -200px;
+	padding: 10px 10px 10px 10px;
+
+	animation-name: paypal-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes paypal-reveal {
+	0% {left: -200px;}
+
+	100% {left: 0px;}
+}
+
+.paypal:hover {
+	color: #ffcc00;
+}
+
