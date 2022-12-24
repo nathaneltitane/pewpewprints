@@ -63,6 +63,7 @@ echo
 
 directoris_list=(
 	/media/internal/Printer/models/pewpewprints
+)
 
 for directory in ${directoris_list[@]}
 do
