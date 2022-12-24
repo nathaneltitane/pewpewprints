@@ -62,8 +62,7 @@ echo
 # requirements /////////////////////////////////////////////////////////////////
 
 directoris_list=(
-	/media/internal/Lego/models
-)
+	/media/internal/Printer/models/pewpewprints
 
 for directory in ${directoris_list[@]}
 do
