@@ -1,0 +1,321 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+USER_HOME="${HOME}"
+
+if [[ -z $(command -v frobulator) ]]
+then
+	if [[ $(id -u -n) = "root" ]]
+	then
+		if [ -z "${SUDO:-$HOME}" ]
+		then
+			SUDO_HOME=/root
+		else
+			SUDO_HOME="${SUDO:-$HOME}"
+		fi
+
+		USER="${SUDO_USER}"
+		USER_HOME=/home/"${USER}"
+	fi
+
+	if [[ -z $(command -v curl) ]]
+	then
+		yes | apt-get install curl
+	fi
+
+	if [ ! -d "${USER_HOME}"/.local/bin ]
+	then
+		mkdir -p "${USER_HOME}"/.local/bin/frobulator
+	fi
+
+	curl -s -L get.frbltr.app > "${USER_HOME}"/.local/bin/frobulator
+
+	chmod +x "${USER_HOME}"/.local/bin/frobulator
+fi
+
+. "${USER_HOME}"/.local/bin/frobulator
+
+# superuser ////////////////////////////////////////////////////////////////////
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="11-30-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+stamp=$(date +"%m-%d-%Y")
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+frobulator.inf "Generating index"
+echo
+
+frobulator.fwd "Writing..."
+echo
+
+# generate header
+
+cat << MODEL-INDEX-HEADER -> "index.html"
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<!-- css -->
+
+		<link rel="stylesheet" href="/css/css.css" type="text/css" />
+
+		<!-- libraries -->
+
+		<script src="/javascript/jquery-3.4.1.min.js" type="text/javascript"></script>
+
+		<!-- scripts -->
+
+		<script src="/javascript/modules.js" type="text/javascript"></script>
+
+	</head>
+
+	<body>
+
+		<div id="background">
+
+		</div>
+
+		<div class="section text-center">
+
+			<div class="grid grid-column grid-center grid-between">
+
+				<div class="grid-cell">
+
+					<h1>Welcome to Pew Pew Prints!</h1>
+
+					<h2>Foam Blaster Printed Parts + Mods : Pew! Pew!</h2>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<hr>
+
+		</div>
+
+		<div class="section text-center">
+
+			<div class="grid grid-column grid-center grid-between">
+
+				<div class="grid-cell">
+
+					<h3>
+
+						// NOTICE //<br>
+
+						<br>
+
+						CURRENCY IS US DOLLAR.<br>
+
+						<br>
+
+						SHIPPING FEE ONLY APPLIES TO PRINT ORDERS AND IS CALCULATED BY VOLUME/WEIGHT.<br>
+
+						<br>
+
+						PEW PEW PRINTS ONLY OFFERS ITEMS THAT HAVE BEEN PRINTED, VALIDATED AND TESTED ON ACTUAL FOAM BLASTER MODELS!<br>
+
+						<br>
+
+						ALL ITEMS ARE COMPATIBLE WITH THE FOLLOWING BRAND NAMES (UNLESS OTHERWISE SPECIFIED):</br>
+
+						- ADVENTURE FORCE [ AFX ]</br>
+
+						- DART ZONE PRO [ DZP ]</br>
+
+						- DART ZONE MAX [ DZM ]</br>
+
+						- NERF [ NMX ]</br>
+
+						<br>
+
+						ITEMS ARE PRINTED TO ORDER.<br>
+
+						<br>
+
+						ORDER ITEMS ARE INSPECTED FOR QUALITY AND MEASURED TO ENSURE TOLERANCE PRECISION BEFORE BEING SHIPPED.<br>
+
+						<br>
+
+						PLEASE KEEP IN MIND THAT SINGLE ITEM PURCHASES ARE QUICKER TO SHIP!<br>
+
+						<br>
+
+						THANK YOU FOR YOUR SUPPORT,<br>
+
+						HAPPY FOAM FLINGING AND...<br>
+
+						<br>
+
+						<h1>PEW! PEW!</h1>
+
+						<br>
+
+					</h3>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- models -->
+
+MODEL-INDEX-HEADER
+
+frobulator.inf "Generating model entries"
+echo
+
+frobulator.fwd "Writing..."
+echo
+
+# values
+
+extensions_list=(
+	png
+)
+
+for extension in ${extensions_list[@]}
+do
+	count=1
+
+	# shuffle models directories list:
+	# generates sorted showcase of all models on each update
+
+	for models_list in $(find models/ -type f -iname render."${extension}" | sort)
+	do
+		IFS='/' read -r -a path <<< $(echo "$models_list")
+
+		# /models/model-type/model/renders/render-type/render.${extension}
+
+		# "${path[0]}" /models
+		# "${path[1]}" /model-category
+		# "${path[2]}" /model
+		# "${path[3]}" /renders
+
+		# render types:
+
+		# "${path[4]}" /thumbnail
+
+		# "${path[5]}" /render.extension
+
+		model_category=$(cat ${path[0]}/${path[1]}/title)
+
+		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		model_title_string=$(echo ${model_title//\<\/\br\>/})
+
+		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
+
+		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+
+		model_price=${path[0]}/${path[1]}/${path[2]}/price
+
+		model_paypal_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
+
+# generate model drawer entries
+
+cat << MODEL-INDEX-CONTENT ->> "index.html"
+		<div class="section">
+
+			<hr>
+
+		</div>
+
+		<div class="section text-center">
+
+			<div class="grid grid-column grid-center grid-between">
+
+				<div class="grid-cell">
+
+					<h3>${title}</h3>
+
+				</div>
+
+				<div class="grid-cell">
+
+					<div class="container image">
+
+						<img src="/${path[0]}/${path[1]}/${path[2]}/renders/render.png" />
+
+					</div>
+
+				</div>
+
+				<div class="grid grid-row">
+
+					<div class="grid-cell">
+
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
+
+						BLACK PRINT</br>
+
+						\$${model_paypal_price}
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+MODEL-INDEX-CONTENT
+
+	((count++))
+
+	done
+done
+
+# generate footer
+
+cat << MODEL-INDEX-FOOTER ->> "index.html"
+		<div class="section footer">
+
+			<!-- footer height compensation -->
+
+		</div>
+
+		<div id="footer" class="section">
+
+		</div>
+
+		</div>
+
+	</body>
+
+</html>
+
+MODEL-INDEX-FOOTER
+
+frobulator.inf "Parsed model entries" "[ ${count} ]"
+echo
+
+frobulator.scs "Index" "[ Done ]"
+echo
