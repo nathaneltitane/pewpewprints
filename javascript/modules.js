@@ -8,9 +8,15 @@ $(function() {
 
 	});
 
-	$.get("/modules/drawer.html", function(data) {
+	$.get("/modules/notice.html", function(data) {
 
-		$("#drawer").append(data);
+		$("#notice").append(data);
+
+	});
+
+	$.get("/modules/models.html", function(data) {
+
+		$("#models").append(data);
 
 	});
 
