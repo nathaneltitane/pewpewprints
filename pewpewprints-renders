@@ -68,7 +68,7 @@ directoris_list=(
 for directory in ${directoris_list[@]}
 do
 	bash ../terminal/f3d-render -stl -render thumbnail -directory "${directory}"
-	bash ../terminal/f3d-render -mpd -render render -directory "${directory}"
+	bash ../terminal/f3d-render -stl -render render -directory "${directory}"
 done
 
 frobulator.scs "Renders" "[ Done ]"
