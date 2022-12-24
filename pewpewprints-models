@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="11-30-2022"
+version="12-24-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -82,6 +82,8 @@ rsync							\
 	--archive					\
 	--quiet						\
 	--recursive					\
+	--exclude='*.sldasm'		\
+	--exclude='*.sldprt'		\
 	--exclude='*.stl'			\
 								"${local_models_directory}"/* "${server_models_directory}"
 
