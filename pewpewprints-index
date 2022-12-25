@@ -136,7 +136,7 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 					<div class="grid-cell">
 
-						<h3>${title}</h3>
+						<h3>${model_title}</h3>
 
 					</div>
 
