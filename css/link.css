@@ -20,3 +20,12 @@ a:hover {
 	outline: none;
 }
 
+#footer a {
+	color: #333333ff;
+}
+
+#footer a:hover {
+	color: #008066ff;
+	text-decoration: none;
+	outline: none;
+}
