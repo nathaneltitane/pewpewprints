@@ -156,9 +156,8 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 							<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
 
-							BLACK PRINT</br>
+							\$${model_paypal_price} USD // ADD TO CART</br>
 
-							\$${model_paypal_price}
 							</a>
 
 						</div>
