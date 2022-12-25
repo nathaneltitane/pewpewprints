@@ -109,6 +109,10 @@ do
 
 		model_category=$(cat ${path[0]}/${path[1]}/title)
 
+		model_compatibility=$(cat ${path[0]}/${path[1]}/${path[2]}/compatibility)
+
+		model_compatibility_string=$(echo ${model_compatibility//\<\/\br\>/})
+
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
 		model_title_string=$(echo ${model_title//\<\/\br\>/})
@@ -137,6 +141,12 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 					<div class="grid-cell">
 
 						<h3>${model_title}</h3>
+
+					</div>
+
+					<div class="grid-cell">
+
+						<h3>COMPATIBILE WITH ${model_compatibility_string}</h3>
 
 					</div>
 
