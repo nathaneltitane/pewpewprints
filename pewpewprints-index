@@ -69,7 +69,7 @@ echo
 
 # generate header
 
-cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
+cat << MODEL-DRAWER-HEADER -> "modules/models.html"
 
 			<!-- models -->
 
