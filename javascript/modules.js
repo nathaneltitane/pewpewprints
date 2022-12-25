@@ -8,6 +8,12 @@ $(function() {
 
 	});
 
+	$.get("/modules/cart.html", function(data) {
+
+		$("#cart").append(data);
+
+	});
+
 	$.get("/modules/notice.html", function(data) {
 
 		$("#notice").append(data);
