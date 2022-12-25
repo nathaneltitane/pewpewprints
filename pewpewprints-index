@@ -164,7 +164,7 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 						<div class="grid-cell">
 
-							<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
+							<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
 
 							\$${model_paypal_price} USD // ADD TO CART</br>
 
