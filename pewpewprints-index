@@ -67,6 +67,11 @@ echo
 frobulator.fwd "Writing..."
 echo
 
+if [[ -f modules/models.html ]]
+then
+	rm -rf modules/models.html
+fi
+
 # generate model entries
 
 # values
