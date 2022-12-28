@@ -73,6 +73,8 @@ cat << MODEL-DRAWER-HEADER -> "modules/models.html"
 
 			<!-- models -->
 
+			<div class="grid grid-around grid-center grid-wrap">
+
 MODEL-DRAWER-HEADER
 
 # generate model entries
@@ -125,30 +127,12 @@ do
 
 		model_paypal_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
 
+
+
 # generate model drawer entries
 
 cat << MODEL-CONTENT ->> "modules/models.html"
-			<div class="section">
-
-				<hr>
-
-			</div>
-
-			<div class="section text-center">
-
-				<div class="grid grid-column">
-
-					<div class="grid-cell">
-
-						${model_title}
-
-					</div>
-
-					<div class="grid-cell">
-
-						COMPATIBILE WITH ${model_compatibility_string}
-
-					</div>
+				<div class="grid grid-3 grid-column">
 
 					<div class="grid grid-center">
 
@@ -160,7 +144,32 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 					</div>
 
-					<div class="grid-cell">
+					<div class="grid-cell text-center">
+
+						COMPATIBILE WITH<br>
+						${model_compatibility_string}
+
+					</div>
+
+					<div class="grid-cell section text-center">
+
+						<hr>
+
+					</div>
+
+					<div class="grid-cell text-center">
+
+						${model_title}
+
+					</div>
+
+					<div class="grid-cell section text-center">
+
+						<hr>
+
+					</div>
+
+					<div class="grid-cell text-center">
 
 						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
 
@@ -172,13 +181,18 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 				</div>
 
-			</div>
-
 MODEL-CONTENT
+
+
 
 	((count++))
 
 	done
+
+	cat << MODEL-CONTENT ->> "modules/models.html"
+			</div>
+
+MODEL-CONTENT
 done
 
 frobulator.inf "Parsed model entries" "[ ${count} ]"
