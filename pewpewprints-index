@@ -134,44 +134,59 @@ do
 cat << MODEL-CONTENT ->> "modules/models.html"
 				<div class="grid grid-responsive grid-column">
 
-					<div class="grid grid-center">
+					<div class="container">
 
-						<div class="image">
+						<div class="grid grid-center">
 
-							<img src="/${path[0]}/${path[1]}/${path[2]}/renders/thumbnail/thumbnail.png">
+							<div class="image">
+
+								<a href="/${path[0]}/${path[1]}/${path[2]}/renders/render.png" target="_blank">
+
+									<img src="/${path[0]}/${path[1]}/${path[2]}/renders/thumbnail/thumbnail.png">
+
+								</a>
+
+							</div>
+
+						</div>
+
+						<div class="container">
+
+							<div class="grid-cell text-center">
+
+								COMPATIBILITY<br>
+
+								${model_compatibility_string}
+
+							</div>
+
+							<div class="grid-cell section text-center">
+
+								<hr>
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								${model_title}
+
+							</div>
 
 						</div>
 
 					</div>
 
-					<div class="grid-cell text-center">
+					<div class="container">
 
-						COMPATIBILE WITH<br>
-						${model_compatibility_string}
+						<div class="grid-cell text-center">
 
-					</div>
+							<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
 
-					<div class="grid-cell section text-center">
+							\$${model_paypal_price} USD // ADD TO CART</br>
 
-					</div>
+							</a>
 
-					<div class="grid-cell text-center">
-
-						${model_title}
-
-					</div>
-
-					<div class="grid-cell section text-center">
-
-					</div>
-
-					<div class="grid-cell text-center">
-
-						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
-
-						\$${model_paypal_price} USD // ADD TO CART</br>
-
-						</a>
+						</div>
 
 					</div>
 

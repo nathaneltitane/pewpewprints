@@ -1,6 +1,5 @@
-#notice {
-	background: #666666ff;
-	color: #333333ff;
+.notice {
+	background: #00000000;
 	height: auto;
 }
 
