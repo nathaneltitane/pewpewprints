@@ -138,7 +138,7 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 						<div class="image">
 
-							<img src="/${path[0]}/${path[1]}/${path[2]}/renders/render.png">
+							<img src="/${path[0]}/${path[1]}/${path[2]}/renders/thumbnail/thumbnail.png">
 
 						</div>
 
