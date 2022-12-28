@@ -140,21 +140,25 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 					<div class="grid-cell">
 
-						<h3>${model_title}</h3>
+						${model_title}
 
 					</div>
 
 					<div class="grid-cell">
 
-						<h3>COMPATIBILE WITH ${model_compatibility_string}</h3>
+						COMPATIBILE WITH ${model_compatibility_string}
 
 					</div>
 
-					<div class="grid-cell">
+					<div class="grid grid-center">
 
-						<div class="container image">
+						<div class="grid-cell">
 
-							<img src="/${path[0]}/${path[1]}/${path[2]}/renders/render.png" />
+							<div class="image">
+
+								<img src="/${path[0]}/${path[1]}/${path[2]}/renders/render.png">
+
+							</div>
 
 						</div>
 
