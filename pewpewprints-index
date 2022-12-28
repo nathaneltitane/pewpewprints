@@ -152,13 +152,9 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 					<div class="grid grid-center">
 
-						<div class="grid-cell">
+						<div class="image">
 
-							<div class="image">
-
-								<img src="/${path[0]}/${path[1]}/${path[2]}/renders/render.png">
-
-							</div>
+							<img src="/${path[0]}/${path[1]}/${path[2]}/renders/render.png">
 
 						</div>
 
