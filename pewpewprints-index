@@ -136,7 +136,7 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 			<div class="section text-center">
 
-				<div class="grid grid-column grid-center grid-between">
+				<div class="grid grid-column">
 
 					<div class="grid-cell">
 
