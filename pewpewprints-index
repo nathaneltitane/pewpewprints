@@ -153,8 +153,6 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 					<div class="grid-cell section text-center">
 
-						<hr>
-
 					</div>
 
 					<div class="grid-cell text-center">
@@ -164,8 +162,6 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 					</div>
 
 					<div class="grid-cell section text-center">
-
-						<hr>
 
 					</div>
 
