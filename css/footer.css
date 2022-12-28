@@ -14,7 +14,7 @@
 }
 
 .footer {
-	height: 60px;
+	height: calc(60px + 10px + 10px);
 }
 
 @keyframes footer-reveal {
