@@ -132,7 +132,7 @@ do
 # generate model drawer entries
 
 cat << MODEL-CONTENT ->> "modules/models.html"
-				<div class="grid grid-3 grid-column">
+				<div class="grid grid-responsive grid-column">
 
 					<div class="grid grid-center">
 
