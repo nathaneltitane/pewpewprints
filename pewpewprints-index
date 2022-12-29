@@ -73,7 +73,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/models.html"
 
 			<!-- models -->
 
-			<div class="grid grid-around grid-center grid-wrap">
+			<div class="grid grid-between grid-center grid-wrap">
 
 MODEL-DRAWER-HEADER
 
