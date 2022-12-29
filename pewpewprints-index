@@ -229,7 +229,8 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 							<div class="grid-cell text-center">
 
-								Foam Blaster Printed Parts + Mods: Pew! Pew!
+								Foam Blaster Printed Parts + Mods:<br>
+								Pew! Pew!
 
 							</div>
 
