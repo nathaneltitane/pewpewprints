@@ -11,8 +11,8 @@
 	opacity: 0;
 
 	animation-name: background-reveal;
-	animation-delay: 0.5s;
-	animation-duration: 1s;
+	animation-delay: 1s;
+	animation-duration: 2.5s;
 	animation-fill-mode: forwards;
 }
 
