@@ -1,5 +1,6 @@
-.notice {
+#notice {
 	background: #00000000;
+	border-top: 20px solid #000000ff;
 	height: auto;
 }
 
