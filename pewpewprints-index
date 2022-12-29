@@ -127,8 +127,6 @@ do
 
 		model_paypal_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
 
-
-
 # generate model drawer entries
 
 cat << MODEL-CONTENT ->> "modules/models.html"
