@@ -27,7 +27,7 @@
 @media (min-width: 961px) { /* tablet, landscape ipad, lo-res laptops ands desktops */
 
 	.grid-responsive {
-		width: 30%;
+		width: 33%;
 	}
 
 }
@@ -35,7 +35,7 @@
 @media (min-width: 1021px) { /* big landscape tablets, laptops, + desktops */
 
 	.grid-responsive {
-		width: 30%;
+		width: 33%;
 	}
 
 }
@@ -43,7 +43,7 @@
 @media (min-width: 1281px) { /* hi-res laptops + desktops */
 
 	.grid-responsive {
-		width: 30%;
+		width: 33%;
 	}
 
 }

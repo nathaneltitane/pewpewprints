@@ -123,6 +123,14 @@ do
 
 		model_title_string=$(echo ${model_title//\<\/\br\>/})
 
+		model_dart=$(cat ${path[0]}/${path[1]}/${path[2]}/dart)
+
+		model_dart_string=$(echo ${model_dart//\<\/\br\>/})
+
+		model_type=$(cat ${path[0]}/${path[1]}/${path[2]}/type)
+
+		model_type_string=$(echo ${model_type//\<\/\br\>/})
+
 		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
 
 		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
@@ -138,9 +146,15 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 					<div class="container">
 
-						<div class="grid grid-center">
+						<div class="grid grid-column grid-center">
 
-							<div class="image">
+							<div class="grid-cell text-right">
+
+								${model_category}
+
+							</div>
+
+							<div class="grid-cell grid-cell-center">
 
 								<a href="/${path[0]}/${path[1]}/${path[2]}/renders/render.png" target="_blank">
 
@@ -170,7 +184,19 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 							<div class="grid-cell text-center">
 
-								${model_title}
+								${model_title_string}
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								${model_dart_string}
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								${model_type_string}
 
 							</div>
 
@@ -207,9 +233,19 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 					<div class="container copyright">
 
-						<div class="grid grid-center">
+						<div class="grid grid-column grid-center">
 
-							<div class="avatar avatar-256"></div>
+							<div class="grid-cell text-right">
+
+								COPYRIGHT
+
+							</div>
+
+							<div class="grid-cell grid-cell-center">
+
+								<img src="/avatar/avatar-bird.png">
+
+							</div>
 
 						</div>
 
@@ -217,7 +253,8 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 							<div class="grid-cell text-center">
 
-								Pew! Pew! Prints
+								PEW! PEW! PRINTS<br>
+								[ FOAM BLASTER PRINTED PARTS + MODS ]
 
 							</div>
 
@@ -229,8 +266,19 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 							<div class="grid-cell text-center">
 
-								Foam Blaster Printed Parts + Mods:<br>
-								Pew! Pew!
+								PEW! PEW!
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								-
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								ALL RIGHTS RESERVED
 
 							</div>
 
@@ -242,7 +290,7 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 						<div class="grid-cell text-center">
 
-							N Λ T H Λ N E L - ©  <text id="year"></text>
+							N Λ T H Λ N E L // © <text id="year"></text>
 
 						</div>
 

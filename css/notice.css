@@ -1,9 +1,11 @@
 #notice {
 	background: #333333ff;
+	border-bottom: 20px solid #000000ff;
 	border-top: 20px solid #000000ff;
 	height: auto;
 	position: relative;
 	bottom: -20px;
+	margin-bottom: calc(-80px - 20px);
 
 	animation-name: notice-reveal;
 	animation-delay: 0.5s;
