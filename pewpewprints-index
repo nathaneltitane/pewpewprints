@@ -272,7 +272,7 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 							<div class="grid-cell text-center">
 
-								-
+								[ VERSION // ${stamp} ]
 
 							</div>
 
@@ -290,7 +290,7 @@ cat << MODEL-CONTENT ->> "modules/models.html"
 
 						<div class="grid-cell text-center">
 
-							N Λ T H Λ N E L // © <text id="year"></text>
+							N Λ T H Λ N E L - © <text id="year"></text>
 
 						</div>
 
