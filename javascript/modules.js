@@ -14,15 +14,9 @@ $(function() {
 
 	});
 
-	$.get("/modules/notice.html", function(data) {
+	$.get("/modules/drawer.html", function(data) {
 
-		$("#notice").append(data);
-
-	});
-
-	$.get("/modules/models.html", function(data) {
-
-		$("#models").append(data);
+		$("#drawer").append(data);
 
 	});
 

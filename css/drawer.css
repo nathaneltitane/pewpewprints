@@ -1,64 +1,32 @@
-.drawer {
-	background: #bbbbbbff;
-	height: 100%;
-	width: 325px;
-	right: -325px;
-	top: 0px;
-	position: fixed;
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
-	z-index: 999;
-}
+#drawer {
+	background: #333333ff;
+	border-top: 20px solid #000000ff;
+	position: relative;
+	bottom: -70px;
 
-.drawer-button {
-	background-size: contain;
-	background-repeat: no-repeat;
-	width: auto;
-	margin: 0px 0px 0px 0px;
-	padding: 10px 10px 10px 10px;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-
-	animation-name: drawer-open;
+	animation-name: drawer-reveal;
 	animation-delay: 0.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
-.drawer-open .drawer {
-	top: 0px;
+#drawer:before {
+	content: "";
+	border-bottom: 25px solid #000000ff;
+	border-left: 50px solid #00000000;
+	border-right: 50px solid #00000000;
+	border-top: 15px solid #00000000;
+	width: 20px;
+	position: absolute;
+	left: 0px;
 	right: 0px;
-	overflow: overlay;
+	top: -60px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.drawer a {
-	margin: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
-	overflow: hidden;
+@keyframes drawer-reveal {
+	0% {bottom: -70px;}
+
+	100% {bottom: calc(80px + 20px);}
 }
-
-@keyframes drawer-open {
-	0% {right: 0px;}
-
-	100% {right: 325px;}
-
-}
-
-.list {
-
-}
-
-.list:last-of-type {
-
-
-}
-
-.category {
-	padding: 10px 0px 10px 0px;
-}
-
-.category br {
-	display: none;
-}
-

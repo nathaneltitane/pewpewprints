@@ -69,11 +69,31 @@ echo
 
 # generate header
 
-cat << MODEL-DRAWER-HEADER -> "modules/models.html"
+cat << 'MODEL-DRAWER-HEADER' -> "modules/drawer.html"
 
 			<!-- scripts -->
 
 			<script src="/javascript/year.js" type="text/javascript"></script>
+
+			<script type="text/javascript">
+
+			$(function() {
+
+				$.get("/modules/notice.html", function(data) {
+
+					$("#notice").append(data);
+
+				});
+
+			});
+
+			</script>
+
+			<!-- notice -->
+
+			<div id="notice">
+
+			</div>
 
 			<!-- models -->
 
@@ -141,7 +161,7 @@ do
 
 # generate model drawer entries
 
-cat << MODEL-CONTENT ->> "modules/models.html"
+cat << MODEL-CONTENT ->> "modules/drawer.html"
 				<div class="grid grid-responsive grid-column">
 
 					<div class="container">
@@ -226,7 +246,7 @@ MODEL-CONTENT
 
 	done
 
-cat << MODEL-CONTENT ->> "modules/models.html"
+cat << MODEL-CONTENT ->> "modules/drawer.html"
 				<!-- copyright -->
 
 				<div class="grid grid-responsive grid-column">
@@ -306,5 +326,5 @@ done
 frobulator.inf "Parsed model entries" "[ ${count} ]"
 echo
 
-frobulator.scs "Models" "[ Done ]"
+frobulator.scs "Drawer" "[ Done ]"
 echo
