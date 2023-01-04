@@ -2,7 +2,7 @@
 	background: #333333ff;
 	border-top: 20px solid #000000ff;
 	position: relative;
-	bottom: -70px;
+	top: 60px;
 
 	animation-name: drawer-reveal;
 	animation-delay: 0.5s;
@@ -26,7 +26,7 @@
 }
 
 @keyframes drawer-reveal {
-	0% {bottom: -70px;}
+	0% {top: 60px;}
 
-	100% {bottom: calc(80px + 20px);}
+	100% {top: calc(60px - 160px);}
 }
