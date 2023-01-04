@@ -8,11 +8,11 @@ if [[ -z $(command -v frobulator) ]]
 then
 	if [[ $(id -u -n) = "root" ]]
 	then
-		if [ -z "${SUDO:-$HOME}" ]
+		if [ -z "${SUDO: -$HOME}" ]
 		then
 			SUDO_HOME=/root
 		else
-			SUDO_HOME="${SUDO:-$HOME}"
+			SUDO_HOME="${SUDO: -$HOME}"
 		fi
 
 		USER="${SUDO_USER}"
@@ -95,9 +95,9 @@ cat << 'MODEL-DRAWER-HEADER' -> "modules/drawer.html"
 
 			</div>
 
-			<!-- models -->
+			<!-- models start -->
 
-			<div class="grid grid-between grid-center grid-wrap">
+			<div class="grid">
 
 MODEL-DRAWER-HEADER
 
@@ -162,71 +162,87 @@ do
 # generate model drawer entries
 
 cat << MODEL-CONTENT ->> "modules/drawer.html"
-				<div class="grid grid-responsive grid-column">
+				<div class="container">
 
-					<div class="container">
+					<div class="grid">
 
-						<div class="grid grid-column grid-center">
+						<div class="grid-4 text-right">
 
-							<div class="grid-cell text-right">
-
-								${model_category}
-
-							</div>
-
-							<div class="grid-cell grid-cell-center">
-
-								<a href="/${path[0]}/${path[1]}/${path[2]}/renders/render.png" target="_blank">
-
-									<img src="/${path[0]}/${path[1]}/${path[2]}/renders/thumbnail/thumbnail.png">
-
-								</a>
-
-							</div>
+							${model_category}
 
 						</div>
 
-						<div class="container">
+						<div class="grid-4">
 
-							<div class="grid-cell text-center">
+							<a href="/${path[0]}/${path[1]}/${path[2]}/renders/render.png" target="_blank">
 
-								COMPATIBILITY<br>
+								<img src="/${path[0]}/${path[1]}/${path[2]}/renders/thumbnail/thumbnail.png">
 
-								${model_compatibility_string}
-
-							</div>
-
-							<div class="grid-cell section text-center">
-
-								<hr>
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								${model_title_string}
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								${model_dart_string}
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								${model_type_string}
-
-							</div>
+							</a>
 
 						</div>
 
-					</div>
+						<div class="grid-1">
 
-					<div class="container cursor-crosshair">
+							COMPATIBILITY
 
-						<div class="grid-cell text-center cursor-crosshair">
+						</div>
+
+						<div class="grid-3">
+
+							${model_compatibility_string}
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-1">
+
+							TITLE
+
+						</div>
+
+						<div class="grid-3">
+
+							${model_title_string}
+
+						</div>
+
+						<div class="grid-1">
+
+							DART
+
+						</div>
+
+						<div class="grid-3">
+
+							${model_dart_string}
+
+						</div>
+
+						<div class="grid-1">
+
+							TYPE
+
+						</div>
+
+						<div class="grid-3">
+
+							${model_type_string}
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-4">
 
 							<a class="cursor-crosshair" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
 
@@ -246,69 +262,68 @@ MODEL-CONTENT
 
 	done
 
-cat << MODEL-CONTENT ->> "modules/drawer.html"
+cat << COPYRIGHT ->> "modules/drawer.html"
 				<!-- copyright -->
 
-				<div class="grid grid-responsive grid-column">
+				<div class="container copyright text-center">
 
-					<div class="container copyright">
+					<div class="grid">
 
-						<div class="grid grid-column grid-center">
+						<div class="grid-4 text-right">
 
-							<div class="grid-cell text-right">
-
-								COPYRIGHT
-
-							</div>
-
-							<div class="grid-cell grid-cell-center">
-
-								<img src="/avatar/avatar-bird.png">
-
-							</div>
+							COPYRIGHT
 
 						</div>
 
-						<div class="container copyright">
+						<div class="grid-4">
 
-							<div class="grid-cell text-center">
-
-								PEW! PEW! PRINTS<br>
-								[ FOAM BLASTER PRINTED PARTS + MODS ]
-
-							</div>
-
-							<div class="grid-cell section text-center">
-
-								<hr>
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								PEW! PEW!
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								[ VERSION // ${stamp} ]
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								ALL RIGHTS RESERVED
-
-							</div>
+							<img src="/avatar/avatar-bird.png">
 
 						</div>
 
-					</div>
+						<div class="grid-4">
 
-					<div class="container copyright">
+							PEW! PEW! PRINTS
 
-						<div class="grid-cell text-center">
+						</div>
+
+						<div class="grid-4">
+
+							[ FOAM BLASTER PRINTED PARTS + MODS ]
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-4">
+
+							PEW! PEW!
+
+						</div>
+
+						<div class="grid-4">
+
+							[ VERSION // ${stamp} ]
+
+						</div>
+
+						<div class="grid-4">
+
+							ALL RIGHTS RESERVED
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-4">
 
 							N Λ T H Λ N E L - © <text id="year"></text>
 
@@ -316,11 +331,14 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 					</div>
 
+COPYRIGHT
+
+cat << MODEL-CONTENT ->> "modules/drawer.html"
 				</div>
 
-			</div>
-
+				<!-- models end -->
 MODEL-CONTENT
+
 done
 
 frobulator.inf "Parsed model entries" "[ ${count} ]"
@@ -328,3 +346,5 @@ echo
 
 frobulator.scs "Drawer" "[ Done ]"
 echo
+
+

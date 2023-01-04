@@ -8,11 +8,11 @@ if [[ -z $(command -v frobulator) ]]
 then
 	if [[ $(id -u -n) = "root" ]]
 	then
-		if [ -z "${SUDO:-$HOME}" ]
+		if [ -z "${SUDO: -$HOME}" ]
 		then
 			SUDO_HOME=/root
 		else
-			SUDO_HOME="${SUDO:-$HOME}"
+			SUDO_HOME="${SUDO: -$HOME}"
 		fi
 
 		USER="${SUDO_USER}"
@@ -79,9 +79,9 @@ do
 
 		-h|--help)
 			echo
-			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
+			echo -e "Usage:  ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
 			echo
-			echo -e "Utility options:"
+			echo -e "Utility options: "
 			echo
 			echo -e "-directory        Specify directory to load models from."
 			echo
@@ -107,9 +107,9 @@ do
 
 		*)
 			echo
-			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
+			echo -e "Usage:  ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
 			echo
-			echo -e "${script}: Unknown option '${1}'"
+			echo -e "${script}:  Unknown option '${1}'"
 			echo -e "Type './${script} --help' for help and usage information."
 			echo
 

@@ -8,11 +8,11 @@ if [[ -z $(command -v frobulator) ]]
 then
 	if [[ $(id -u -n) = "root" ]]
 	then
-		if [ -z "${SUDO:-$HOME}" ]
+		if [ -z "${SUDO: -$HOME}" ]
 		then
 			SUDO_HOME=/root
 		else
-			SUDO_HOME="${SUDO:-$HOME}"
+			SUDO_HOME="${SUDO: -$HOME}"
 		fi
 
 		USER="${SUDO_USER}"

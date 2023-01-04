@@ -8,11 +8,11 @@ if [[ -z $(command -v frobulator) ]]
 then
 	if [[ $(id -u -n) = "root" ]]
 	then
-		if [ -z "${SUDO:-$HOME}" ]
+		if [ -z "${SUDO: -$HOME}" ]
 		then
 			SUDO_HOME=/root
 		else
-			SUDO_HOME="${SUDO:-$HOME}"
+			SUDO_HOME="${SUDO: -$HOME}"
 		fi
 
 		USER="${SUDO_USER}"
@@ -71,7 +71,7 @@ frobulator.require ${list[@]}
 # generate server configuration
 
 cat <<- 'FILE' > /etc/apache2/sites-enabled/pewpewprints.conf
-<VirtualHost *:80>
+<VirtualHost *: 80>
         ServerAdmin     nathanel.titane@gmail.com
         ServerName      pewpewprints
         ServerAlias     dev.pewpewprints.com
