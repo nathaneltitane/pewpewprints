@@ -184,7 +184,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						</div>
 
-						<div class="grid-1 text-right">
+						<div class="grid-3 text-right">
 
 							${model_category}
 
