@@ -174,7 +174,17 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 					<div class="grid">
 
-						<div class="grid-4 text-right">
+						<div class="grid-1 text-left">
+
+							<a class="cursor-crosshair" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
+
+							\$${model_paypal_price} USD // ADD TO CART</br>
+
+							</a>
+
+						</div>
+
+						<div class="grid-1 text-right">
 
 							${model_category}
 
@@ -267,22 +277,6 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 						<div class="grid-3 text-right">
 
 							${model_attachment_string}
-
-						</div>
-
-						<div class="grid-4 section">
-
-							<hr>
-
-						</div>
-
-						<div class="grid-4 text-center">
-
-							<a class="cursor-crosshair" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
-
-							\$${model_paypal_price} USD // ADD TO CART</br>
-
-							</a>
 
 						</div>
 
