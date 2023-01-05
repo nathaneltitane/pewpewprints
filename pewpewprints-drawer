@@ -174,7 +174,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 					<div class="grid">
 
-						<div class="grid-1 text-left">
+						<div class="grid-2 text-left">
 
 							<a class="cursor-crosshair" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
 
@@ -184,7 +184,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						</div>
 
-						<div class="grid-3 text-right">
+						<div class="grid-2 text-right">
 
 							${model_category}
 
