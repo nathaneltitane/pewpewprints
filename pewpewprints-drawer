@@ -268,6 +268,12 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						</div>
 
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
 						<div class="grid-1">
 
 							ATTACHMENT
