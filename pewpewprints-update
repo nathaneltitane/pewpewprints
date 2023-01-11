@@ -67,10 +67,6 @@ do
 			option="pages"
 		;;
 
-		-s|--server)
-			option="server"
-		;;
-
 		-h|--help)
 			echo
 			echo -e "Usage:  ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
@@ -241,18 +237,6 @@ then
 	upload &
 
 	frobulator.progress "Updating pages..."
-	echo
-fi
-
-if [[ "${option}" = "server" ]]
-then
-	scripts_list+=(
-		pewpewprints-server
-	)
-
-	run
-
-	frobulator.progress "Creating server..."
 	echo
 fi
 
