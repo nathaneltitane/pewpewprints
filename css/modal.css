@@ -1,0 +1,163 @@
+.modal {
+	background: #00000066;
+	bottom: 0px;
+	left: 0px;
+
+	right: 0px;
+	top: 0px;
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.modal-background {
+	cursor: pointer;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	position: absolute;
+}
+
+.modal-content {
+	bottom: 0px;
+	left: 0px;
+	top:0px;
+	right: 0px;
+	position: absolute;
+	height: fit-content;
+
+	/* width: media.css */
+
+	margin: auto;
+	padding: 0px 0px 0px 0px;
+	overflow: auto;
+}
+
+#modal-contact {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+
+#modal-print {
+	position: fixed;
+	top: 10px;
+	left: 30px;
+}
+
+#modal-quote {
+	position: fixed;
+	top: 10px;
+	left: 50px;
+}
+
+.modal-state {
+	display: none;
+}
+
+.modal-state:checked + .modal,
+.modal-state:checked + .modal .modal-content {
+	top: 0px;
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal-close {
+	background: #333333ff;
+	border-radius: 5px;
+	border: none;
+	color: #888888ff;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 10px 10px 10px;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+}
+
+.modal-close:hover {
+	color:#ff5050ff;
+}
+
+.modal-input {
+	background: #333333ff;
+	border-radius: 5px;
+	border: none;
+	color: #eeeeeeff;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 10px 10px 10px;
+	width: 100%;
+}
+
+.modal-message {
+	background: #333333ff;
+	border-radius: 5px;
+	border: none;
+	color: #eeeeeeff;
+	padding: 10px;
+	width: 100%;
+	resize: none;
+}
+
+.modal-button {
+	background: #333333ff;
+	color: #888888ff;
+	border-radius: 5px;
+	border: none;
+	bottom: 10px;
+	color: #eeeeeeff;
+	left: 10px;
+	padding: 10px;
+	right: 10px;
+	width: 100%;
+}
+
+.modal-text {
+	background: #444444ff;
+	border: 1px solid #888888ff;
+	border-radius: 0px 5px 0px 0px;
+	color: #888888ff;
+
+	margin: 0px 0px 0px 0px;
+	padding: 5px 5px 5px 5px;
+
+	width: 100%;
+	resize: none;
+}
+
+.modal-button:hover {
+	color: #008066ff;
+}
+
+.modal-item:hover {
+	color: #008066ff;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	display: none;
+}
+
+.contact {
+	color: #bf682eff;
+}
+
+.contact:hover {
+	color: #bbbbbbff;
+}
+
+.print {
+	color: #8f4e83ff;
+}
+
+.print:hover {
+	color: #bbbbbbff;
+}
+
+.quote {
+	color: #3e9761ff;
+}
+
+.quote:hover {
+	color: #bbbbbbff;
+}

@@ -1,0 +1,15 @@
+.paypal {
+	color: #169bd7ff;
+}
+
+.paypal:hover {
+	color: #ffcc00ff;
+}
+
+.cart {
+	color: #c5ab41ff;
+}
+
+.cart:hover {
+	color: #bbbbbbff;
+}
