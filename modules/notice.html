@@ -1,0 +1,63 @@
+			<!-- scripts -->
+
+			<script type="text/javascript">
+
+				$(function() {
+
+					$.get("/modules/message.html", function(data) {
+
+						$("#message").append(data);
+
+					});
+
+					$.get("/modules/communicate.html", function(data) {
+
+						$("#communicate").append(data);
+
+					});
+
+					$.get("/modules/order.html", function(data) {
+
+						$("#order").append(data);
+
+					});
+
+					$.get("/modules/custom.html", function(data) {
+
+						$("#custom").append(data);
+
+					});
+
+					$.get("/modules/legend.html", function(data) {
+
+						$("#legend").append(data);
+
+					});
+
+				});
+
+			</script>
+
+			<div class="grid">
+
+				<div class="grid-4" id="message">
+
+				</div>
+
+				<div class="grid-4" id="order">
+
+				</div>
+
+				<div class="grid-4" id="communicate">
+
+				</div>
+
+				<div class="grid-4" id="custom">
+
+				</div>
+
+				<div class="grid-4 id="legend">
+
+				</div>
+
+			</div>

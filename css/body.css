@@ -1,0 +1,10 @@
+* {
+	font-family: 'Noto Sans Mono', monospace !important;
+}
+
+body {
+	background: #333333ff;
+	color: #888888ff;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}

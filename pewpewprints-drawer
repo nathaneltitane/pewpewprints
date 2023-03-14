@@ -1,0 +1,464 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+if [ -f "${HOME}"/.local/bin/frobulator ]
+then
+	rm -r -f "${HOME}"/.local/bin/frobulator
+fi
+
+if [[ -z $(command -v frobulator) ]]
+then
+	if [[ $(id -u -n) = "root" ]]
+	then
+		SUDO_HOME=/root
+
+		USER="${SUDO_USER}"
+
+		HOME=/home/"${USER}"
+	fi
+
+	if [[ -z $(command -v curl) ]]
+	then
+		yes | apt-get install curl
+	fi
+
+	if [ ! -d "${HOME}"/.local/bin ]
+	then
+		mkdir -p "${HOME}"/.local/bin
+	fi
+
+	curl -s -L get.frbltr.app > "${HOME}"/.local/bin/frobulator
+
+	chmod +x "${HOME}"/.local/bin/frobulator
+fi
+
+. "${HOME}"/.local/bin/frobulator
+
+# superuser ////////////////////////////////////////////////////////////////////
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="02-09-2023"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+stamp=$(date +"%m-%d-%Y")
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+frobulator.inf "Generating model entries"
+echo
+
+frobulator.fwd "Writing..."
+echo
+
+# generate header
+
+cat << 'MODEL-DRAWER-HEADER' -> "modules/drawer.html"
+
+			<!-- scripts -->
+
+			<script src="/javascript/year.js" type="text/javascript"></script>
+
+			<script type="text/javascript">
+
+			$(function() {
+
+				$.get("/modules/notice.html", function(data) {
+
+					$("#notice").append(data);
+
+				});
+
+			});
+
+			</script>
+
+			<!-- notice -->
+
+			<div id="notice">
+
+			</div>
+
+			<!-- models start -->
+
+			<div class="grid">
+
+MODEL-DRAWER-HEADER
+
+# generate model entries
+
+# values
+
+extensions_list=(
+	png
+)
+
+for extension in ${extensions_list[@]}
+do
+	count=1
+
+	# shuffle models directories list:
+	# generates sorted showcase of all models on each update
+
+	for models_list in $(find models/ -type f -iname render."${extension}" | sort)
+	do
+		IFS='/' read -r -a path <<< $(echo "$models_list")
+
+		# /models/model-type/model/renders/render-type/render.${extension}
+
+		# "${path[0]}" /models
+		# "${path[1]}" /model-category
+		# "${path[2]}" /model
+		# "${path[3]}" /renders
+
+		# render types:
+
+		# "${path[4]}" /thumbnail
+
+		# "${path[5]}" /render.extension
+
+		model_category=$(cat ${path[0]}/${path[1]}/title)
+
+		model_name=$(cat ${path[0]}/${path[1]}/${path[2]}/model)
+
+		model_name_string=$(echo ${model_name})
+
+		model_compatibility=$(cat ${path[0]}/${path[1]}/${path[2]}/compatibility)
+
+		model_compatibility_string=$(echo ${model_compatibility})
+
+		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		model_title_string=$(echo ${model_title//\<\/\br\>/})
+
+		model_dart=$(cat ${path[0]}/${path[1]}/${path[2]}/dart)
+
+		model_dart_string=$(echo ${model_dart//\<\/\br\>/})
+
+		model_type=$(cat ${path[0]}/${path[1]}/${path[2]}/type)
+
+		model_type_string=$(echo ${model_type//\<\/\br\>/})
+
+		model_attachment=$(cat ${path[0]}/${path[1]}/${path[2]}/attachment)
+
+		model_attachment_string=$(echo ${model_attachment})
+
+		model_weight=$(cat ${path[0]}/${path[1]}/${path[2]}/weight)
+
+		model_weight_string=$(echo ${model_weight})
+
+		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
+
+		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+
+		model_price=${path[0]}/${path[1]}/${path[2]}/price
+
+		model_paypal_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
+
+		model_quote=${path[0]}/${path[1]}/${path[2]}/quote
+
+		model_quote_price=$(cat ${path[0]}/${path[1]}/${path[2]}/quote)
+
+# generate model drawer entries
+
+cat << MODEL-CONTENT ->> "modules/drawer.html"
+				<div class="container product">
+
+					<div class="grid">
+
+						<div class="grid-2 text-left">
+
+							CATEGORY
+
+						</div>
+
+						<div class="grid-2 text-right">
+
+							${model_category}
+
+						</div>
+
+						<div class="grid-2 text-left">
+
+							IDENTIFIER
+
+						</div>
+
+						<div class="part-identifier grid-2 text-right">
+
+							${model_paypal_id}
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-2 text-left">
+
+							MODEL // US$ ${model_paypal_price}
+
+						</div>
+
+						<div class="grid-2 text-right">
+
+							<a class="cursor-cell" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
+
+								<label class="cart cursor-pointer text-bold">[ ADD TO CART ]</label>
+
+							</a>
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-2 text-left">
+
+							PRINT // US$ ${model_quote_price}
+
+						</div>
+
+						<div class="grid-2 text-right">
+
+
+							<label for="modal-quote" class="quote cursor-pointer text-bold">[ QUOTE ]</label>
+
+						</div>
+
+						<div class="grid-4">
+
+							<img src="/${path[0]}/${path[1]}/${path[2]}/renders/thumbnail/thumbnail.png">
+
+						</div>
+
+						<div class="grid-1">
+
+							COMPATIBILITY
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_compatibility_string}
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-1">
+
+							MODEL
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_name_string}
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-1">
+
+							TITLE
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_title_string}
+
+						</div>
+
+						<div class="grid-1">
+
+							DART
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_dart_string}
+
+						</div>
+
+						<div class="grid-1">
+
+							TYPE
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_type_string}
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-1">
+
+							ATTACHMENT
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_attachment_string}
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-1">
+
+							WEIGHT
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_weight_string} G
+
+						</div>
+
+						<div class="hide part-name grid-4 text-right">
+
+							${path[2]}
+
+						</div>
+
+					</div>
+
+				</div>
+
+MODEL-CONTENT
+
+	((count++))
+
+	done
+
+cat << COPYRIGHT ->> "modules/drawer.html"
+				<!-- copyright -->
+
+				<div class="container copyright text-center">
+
+					<div class="grid">
+
+						<div class="grid-4 text-right">
+
+							COPYRIGHT
+
+						</div>
+
+						<div class="grid-4">
+
+							<img src="/avatar/avatar-bird.png">
+
+						</div>
+
+						<div class="grid-4">
+
+							PEW! PEW! PRINTS
+
+						</div>
+
+						<div class="grid-4">
+
+							[ FOAM BLASTER PRINTED PARTS + MODS ]
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-4">
+
+							PEW! PEW!
+
+						</div>
+
+						<div class="grid-4">
+
+							[ VERSION // ${stamp} ]
+
+						</div>
+
+						<div class="grid-4">
+
+							ALL RIGHTS RESERVED
+
+						</div>
+
+						<div class="grid-4 section">
+
+							<hr>
+
+						</div>
+
+						<div class="grid-4">
+
+							N Λ T H Λ N E L - © <text id="year"></text>
+
+						</div>
+
+					</div>
+
+COPYRIGHT
+
+cat << MODEL-CONTENT ->> "modules/drawer.html"
+				</div>
+
+				<!-- models end -->
+MODEL-CONTENT
+
+done
+
+frobulator.inf "Parsed model entries" "[ ${count} ]"
+echo
+
+frobulator.scs "Drawer" "[ Done ]"
+echo
+
+
