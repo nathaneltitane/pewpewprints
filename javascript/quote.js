@@ -18,6 +18,10 @@ $(document).ready(function() {
 
 				var button = $(item).find("[for='modal-quote']")[0];
 
+				id = id.trim();
+
+				name = name.trim();
+
 				$(button).on(
 					"click",
 
