@@ -10,13 +10,13 @@ $(document).ready(function() {
 
 		$(".product"),
 
-			function (index, item) {
+			function (index, product) {
 
-				var id  = $(item).find(".part-identifier")[0].innerText;
+				var id  = $(product).find(".product-identifier")[0].innerText;
 
-				var name  = $(item).find(".part-name")[0].innerText;
+				var name  = $(product).find(".product-name")[0].innerText;
 
-				var button = $(item).find("[for='modal-quote']")[0];
+				var button = $(product).find("[for='modal-quote']")[0];
 
 				id = id.trim();
 
