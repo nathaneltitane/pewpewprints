@@ -12,9 +12,9 @@ $(document).ready(function() {
 
 			function (index, product) {
 
-				var id  = $(product).find(".product-identifier")[0].innerText;
+				var id = $(product).find(".product-identifier")[0].innerText;
 
-				var name  = $(product).find(".product-name")[0].innerText;
+				var name = $(product).find(".product-name")[0].innerText;
 
 				var button = $(product).find("[for='modal-quote']")[0];
 
