@@ -391,7 +391,11 @@ cat << COPYRIGHT ->> "modules/drawer.html"
 
 						<div class="grid-4">
 
-							<img src="/avatar/avatar-bird.png">
+							<a class="container" href="https://nathaneltitane.com">
+
+								<img src="/avatar/avatar-bird.png">
+
+							</a>
 
 						</div>
 
