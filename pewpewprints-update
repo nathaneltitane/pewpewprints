@@ -132,6 +132,7 @@ echo
 # functions ////////////////////////////////////////////////////////////////////
 
 upload () {
+
 	message="${1}"
 
 	git add *
@@ -146,6 +147,7 @@ upload () {
 }
 
 option () {
+
 	for script in ${list[@]}
 	do
 		"${SHELL}" "${PWD}"/"${script}"
