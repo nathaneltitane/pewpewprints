@@ -53,6 +53,9 @@ frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////////
 
+models_directory="${PWD}"/models
+modules_directory="${PWD}"/modules
+
 stamp=$(date +"%m-%d-%Y")
 
 # defaults /////////////////////////////////////////////////////////////////////
@@ -111,67 +114,64 @@ for extension in ${extensions_list[@]}
 do
 	count=1
 
-	# shuffle models directories list:
-	# generates sorted showcase of all models on each update
+	models_list=( $(find "${models_directory}" -type f -iname "render.${extension}" | sort) )
 
-	for models_list in $(find models/ -type f -iname render."${extension}" | sort)
+
+	# set IFS
+
+	IFS=$'\n'
+
+	for model_path in ${models_list[@]}
 	do
-		IFS='/' read -r -a path <<< $(echo "$models_list")
+		model_path=$(echo "${model_path}" | cut -d '/' -f6-)
 
-		# /models/model-type/model/renders/render-type/render.${extension}
+		# get model file name from path
 
-		# "${path[0]}" /models
-		# "${path[1]}" /model-category
-		# "${path[2]}" /model
-		# "${path[3]}" /renders
+		model_file="${model_path##*/}"
 
-		# render types:
+		# strip extension from model file name
 
-		# "${path[4]}" /thumbnail
+		model_name="${model_file%.*}"
 
-		# "${path[5]}" /render.extension
+		# use model directory as root
 
-		model_category=$(cat ${path[0]}/${path[1]}/title)
+		model_directory="${model_path%/*/*}"
 
-		model_name=$(cat ${path[0]}/${path[1]}/${path[2]}/model)
-
-		model_name_string=$(echo ${model_name})
-
-		model_compatibility=$(cat ${path[0]}/${path[1]}/${path[2]}/compatibility)
+		model_compatibility=$(cat "${model_directory}"/compatibility)
 
 		model_compatibility_string=$(echo ${model_compatibility})
 
-		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+		model_title=$(cat "${model_directory}"/title)
 
 		model_title_string=$(echo ${model_title//\<\/\br\>/})
 
-		model_dart=$(cat ${path[0]}/${path[1]}/${path[2]}/dart)
+		model_dart=$(cat "${model_directory}"/dart)
 
 		model_dart_string=$(echo ${model_dart//\<\/\br\>/})
 
-		model_type=$(cat ${path[0]}/${path[1]}/${path[2]}/type)
+		model_type=$(cat "${model_directory}"/type)
 
 		model_type_string=$(echo ${model_type//\<\/\br\>/})
 
-		model_attachment=$(cat ${path[0]}/${path[1]}/${path[2]}/attachment)
+		model_attachment=$(cat "${model_directory}"/attachment)
 
 		model_attachment_string=$(echo ${model_attachment})
 
-		model_weight=$(cat ${path[0]}/${path[1]}/${path[2]}/weight)
+		model_weight=$(cat "${model_directory}"/weight)
 
 		model_weight_string=$(echo ${model_weight})
 
-		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
+		model_paypal="${model_directory}"/paypal
 
-		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+		model_paypal_id=$(cat "${model_directory}"/paypal)
 
-		model_price=${path[0]}/${path[1]}/${path[2]}/price
+		model_price="${model_directory}"/price
 
-		model_paypal_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
+		model_paypal_price=$(cat "${model_directory}"/price)
 
-		model_quote=${path[0]}/${path[1]}/${path[2]}/quote
+		model_quote="${model_directory}"/quote
 
-		model_quote_price=$(cat ${path[0]}/${path[1]}/${path[2]}/quote)
+		model_quote_price=$(cat "${model_directory}"/quote)
 
 # generate model drawer entries
 
@@ -247,7 +247,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-4">
 
-							<img src="/${path[0]}/${path[1]}/${path[2]}/renders/thumbnail/thumbnail.png">
+							<img src="/"${model_directory}"/renders/thumbnail/thumbnail.png">
 
 						</div>
 
