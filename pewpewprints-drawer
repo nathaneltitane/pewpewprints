@@ -116,7 +116,6 @@ do
 
 	models_list=( $(find "${models_directory}" -type f -iname "render.${extension}" | sort) )
 
-
 	# set IFS
 
 	IFS=$'\n'
@@ -247,7 +246,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-4">
 
-							<img src="/"${model_directory}"/renders/thumbnail/thumbnail.png">
+							<img src="/${model_directory}/renders/thumbnail/thumbnail.png">
 
 						</div>
 
