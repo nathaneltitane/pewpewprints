@@ -65,11 +65,11 @@ list+=(
 
 for directory in ${list[@]}
 do
-	"${SHELL}" ../terminal/f3d-render -stl -render thumbnail -directory "${directory}"
-	"${SHELL}" ../terminal/f3d-render -stl -render render -directory "${directory}"
+	"${SHELL}" ../terminal/f3d-render --file stl --render thumbnail --directory "${directory}"
+	"${SHELL}" ../terminal/f3d-render --file stl --render render --directory "${directory}"
 done
 
 list=()
 
-frobulator.scs "Renders" "[ Done ]"
+frobulator.cpt "Complete" "[ Renders ]"
 echo

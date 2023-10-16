@@ -112,5 +112,5 @@ rsync							\
 	--exclude='*.stl'			\
 								"${local_content_directory}"/* "${local_server_directory}"
 
-frobulator.scs "Server" "[ Done ]"
+frobulator.cpt "Complete" "[ Server ]"
 echo

@@ -461,7 +461,7 @@ done
 frobulator.inf "Parsed model entries" "[ ${count} ]"
 echo
 
-frobulator.scs "Drawer" "[ Done ]"
+frobulator.cpt "Complete" "[ Drawer ]"
 echo
 
 

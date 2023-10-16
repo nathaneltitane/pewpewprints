@@ -212,5 +212,5 @@ option ${list[@]}
 
 list=()
 
-frobulator.scs "Update" "[ Done ]"
+frobulator.scs "Done" "[ Update ]"
 echo
