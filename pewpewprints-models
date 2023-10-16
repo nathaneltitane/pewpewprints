@@ -87,7 +87,7 @@ rsync								\
 	--exclude="part"				\
 	--exclude="prototypes"			\
 	--exclude="work-in-progress"	\
-									"${local_models_directory}"/* "${server_models_directory}"
+									"${local_models_directory}"/* "${server_models_directory}" > "${sink}" 2>&1
 
 frobulator.cpt "Complete" "[ Models ]"
 echo
