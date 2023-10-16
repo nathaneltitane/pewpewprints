@@ -79,8 +79,7 @@ list+=(
 
 render_options=(
 	thumbnail
-	flat
-	overlay
+	render
 )
 
 for directory in ${list[@]}
