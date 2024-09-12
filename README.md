@@ -1,6 +1,6 @@
 ![pewpewprints](https://raw.githubusercontent.com/nathaneltitane/pewpewprints/main/pewpewprints.svg)
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-000000.svg?style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=2WZT7PCW3XDX6)
+[![Donate](https://img.shields.io/badge/Buy_Me_A_Coffee-2f343f.svg?style=for-the-badge&logo=buymeacoffee&label=Donate)](https://buymeacoffee.com/nathaneltitane)
 
 [[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints) [ Version // 02-15-2023 ]
 
@@ -67,4 +67,4 @@ List of owned Foam Blasters models used for parts testing:
 
 ### Enjoying Pew! Pew! Prints? Buy me a coffee to show your appreciation!
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-000000.svg?style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=2WZT7PCW3XDX6)
+[![Donate](https://img.shields.io/badge/Buy_Me_A_Coffee-2f343f.svg?style=for-the-badge&logo=buymeacoffee&label=Donate)](https://buymeacoffee.com/nathaneltitane)
