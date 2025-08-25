@@ -51,7 +51,7 @@ List of owned Foam Blasters models used for parts testing:
 
 [[ L²CU // Project Page ]](https://github.com/nathaneltitane/l2cu)
 
-[[ Mecha // Blocks // Project Page ]](https://github.com/nathaneltitane/legolinux)
+[[ Mecha // Blocks // Project Page ]](https://github.com/nathaneltitane/mechablocks)
 
 [[ Nathanel + Titane // Project Page ]](https://github.com/nathaneltitane/nathaneltitane)
 
@@ -75,7 +75,7 @@ List of owned Foam Blasters models used for parts testing:
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/terminal?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=TERMINAL)](https://github.com/nathaneltitane/terminal)
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/legolinux?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=LEGO%20//%20LINUX)](https://github.com/nathaneltitane/legolinux)
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/mechablocks?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=LEGO%20//%20LINUX)](https://github.com/nathaneltitane/mechablocks)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/pixtrm?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=PIXTRM)](https://github.com/nathaneltitane/pixtrm)
 
