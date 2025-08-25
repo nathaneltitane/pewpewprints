@@ -51,7 +51,7 @@ List of owned Foam Blasters models used for parts testing:
 
 [[ L²CU // Project Page ]](https://github.com/nathaneltitane/l2cu)
 
-[[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux)
+[[ Mecha // Blocks // Project Page ]](https://github.com/nathaneltitane/legolinux)
 
 [[ Nathanel + Titane // Project Page ]](https://github.com/nathaneltitane/nathaneltitane)
 
