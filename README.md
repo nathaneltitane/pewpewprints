@@ -2,7 +2,7 @@
 
 [![Donate](https://img.shields.io/badge/Paypal-2f343f.svg?style=for-the-badge&logo=paypal&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)
 
-[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints) [ Version // 02-15-2023 ]
+[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints) [ Version // 2023-02-15 ]
 
 ---
 
@@ -85,7 +85,7 @@ List of owned Foam Blasters models used for parts testing:
 
 ---
 
-[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints) [ Version // 02-15-2023 ]
+[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints) [ Version // 2023-02-15 ]
 
 ### Enjoying Pew! Pew! Prints? Buy me a coffee to show your appreciation!
 
