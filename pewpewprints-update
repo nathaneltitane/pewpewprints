@@ -144,19 +144,19 @@ do
 			echo
 			echo -e "Options:"
 			echo
-			echo -e "-directory          Specify [d]irectory to load models from."
+			echo -e "-directory       Specify [d]irectory to load models from."
 			echo
-			echo -e "-a, --all           Update [a]ll website framework and content."
+			echo -e "-a, --all        Update [a]ll website framework and content."
 			echo
-			echo -e "-r, --renders       Update models [r]enders content."
+			echo -e "-r, --renders    Update models [r]enders content."
 			echo
-			echo -e "-m, --models        Update [m]odels content."
+			echo -e "-m, --models     Update [m]odels content."
 			echo
-			echo -e "-d, --drawer        Update [d]rawer content."
+			echo -e "-d, --drawer     Update [d]rawer content."
 			echo
-			echo -e "-h, --help          Show [h]elp and usage information."
+			echo -e "-h, --help       Show [h]elp and usage information."
 			echo
-			echo -e "'${script}'         [ Version // ${version} ]"
+			echo -e "'${script}'      [ Version // ${version} ]"
 			echo
 
 			exit
