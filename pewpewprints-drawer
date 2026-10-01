@@ -166,10 +166,8 @@ stamp=$(date +"%m-%d-%Y")
 # functions ////////////////////////////////////////////////////////////////////
 
 frobulator.inf "Generating model entries"
-echo
 
 frobulator.fwd "Writing..."
-echo
 
 # generate header
 
@@ -561,9 +559,7 @@ MODEL-CONTENT
 done
 
 frobulator.inf "Parsed model entries" "[ ${count} ]"
-echo
 
 frobulator.cpt "Complete" "[ Drawer ]"
-echo
 
 
