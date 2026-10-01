@@ -221,4 +221,3 @@ rsync							\
 								"${local_content_directory}"/* "${local_server_directory}"
 
 frobulator.cpt "Complete" "[ Server ]"
-echo
