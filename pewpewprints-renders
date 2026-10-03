@@ -168,7 +168,7 @@ render () {
 	render_option="${2}"
 	directory="${3}"
 
-	"${SHELL}" ../terminal/f3d-render			\
+	"${SHELL}" ../terminal/utility-render-f3d			\
 					--file ${extension}			\
 					--render ${render_option}	\
 					--directory "${directory}"
