@@ -69,7 +69,7 @@ version="2026-10-04"
 
 # usage ────────────────────────────────────────────────────────────────────────
 
-while (($#))
+while (( $# ))
 do
 	case "${1}"
 	in
@@ -114,8 +114,8 @@ done
 
 # variables ────────────────────────────────────────────────────────────────────
 
-local_content_directory="${PWD}"/
-local_server_directory=/var/www/html/pewpewprints/
+directory_content_local="${PWD}"/
+directory_server_local=/var/www/html/pewpewprints/
 
 # defaults ─────────────────────────────────────────────────────────────────────
 
@@ -156,11 +156,11 @@ FILE
 
 # generate local server directory
 
-directories_list=(
+list_directories=(
 	/var/www/html/pewpewprints
 )
 
-for directory in ${directories_list[@]}
+for directory in ${list_directories[@]}
 do
 	mkdir -p "${directory}"
 
@@ -176,6 +176,6 @@ rsync							\
 	--exclude='*.sldasm'		\
 	--exclude='*.sldprt'		\
 	--exclude='*.stl'			\
-								"${local_content_directory}"/* "${local_server_directory}"
+								"${directory_content_local}"/* "${directory_server_local}"
 
 frobulator.cpt "Complete" "[ Server ]"

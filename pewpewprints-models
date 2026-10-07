@@ -69,7 +69,7 @@ version="2026-10-04"
 
 # usage ────────────────────────────────────────────────────────────────────────
 
-while (($#))
+while (( $# ))
 do
 	case "${1}"
 	in
@@ -114,11 +114,11 @@ done
 
 # variables ────────────────────────────────────────────────────────────────────
 
-local_directory=/media/internal/Printer/models/pewpewprints
-local_models_directory="${local_directory}"
+directory_local=/media/internal/Printer/models/pewpewprints
+directory_models_local="${directory_local}"
 
-server_directory="${PWD}"
-server_models_directory="${server_directory}"/models
+directory_server="${PWD}"
+directory_models_server="${directory_server}"/models
 
 # defaults ─────────────────────────────────────────────────────────────────────
 
@@ -126,9 +126,9 @@ server_models_directory="${server_directory}"/models
 
 # prepare update
 
-if [[ -d "${server_models_directory}" ]]
+if [[ -d "${directory_models_server}" ]]
 then
-	frobulator.delete "${server_directory}" models
+	frobulator.delete "${directory_server}" models
 fi
 
 # pull ─────────────────────────────────────────────────────────────────────────
@@ -148,6 +148,6 @@ rsync								\
 	--exclude="part"				\
 	--exclude="prototypes"			\
 	--exclude="work-in-progress"	\
-									"${local_models_directory}"/* "${server_models_directory}" > "${sink}" 2>&1
+									"${directory_models_local}"/* "${directory_models_server}" > "${sink}" 2>&1
 
 frobulator.cpt "Complete" "[ Models ]"
