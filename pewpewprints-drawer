@@ -69,7 +69,7 @@ version="2026-10-04"
 
 # usage ────────────────────────────────────────────────────────────────────────
 
-while (($#))
+while (( $# ))
 do
 	case "${1}"
 	in
@@ -114,10 +114,10 @@ done
 
 # variables ────────────────────────────────────────────────────────────────────
 
-models_directory="${PWD}"/models
-modules_directory="${PWD}"/modules
+directory_models="${PWD}"/models
+directory_modules="${PWD}"/modules
 
-stamp=$(date +"%m-%d-%Y")
+date_version=$(date +"%m-%d-%Y")
 
 # defaults ─────────────────────────────────────────────────────────────────────
 
@@ -165,71 +165,71 @@ MODEL-DRAWER-HEADER
 
 # values
 
-extensions_list=(
+list_extensions=(
 	png
 )
 
-for extension in ${extensions_list[@]}
+for extension in ${list_extensions[@]}
 do
-	count=1
+	count_entries=1
 
-	models_list=( $(find "${models_directory}" -type f -iname "render.${extension}" | sort) )
+	list_renders=( $(find "${directory_models}" -type f -iname "render.${extension}" | sort) )
 
 	# set IFS
 
 	IFS=$'\n'
 
-	for model_path in ${models_list[@]}
+	for path_render in ${list_renders[@]}
 	do
-		model_path=$(echo "${model_path}" | cut -d '/' -f6-)
+		path_render=$(echo "${path_render}" | cut -d '/' -f6-)
 
 		# get model file name from path
 
-		model_file="${model_path##*/}"
+		file_render="${path_render##*/}"
 
 		# strip extension from model file name
 
-		model_name="${model_file%.*}"
+		name_render="${file_render%.*}"
 
 		# use model directory as root
 
-		model_directory="${model_path%/*/*}"
+		directory_model="${path_render%/*/*}"
 
-		model_compatibility=$(cat "${model_directory}"/compatibility)
+		content_compatibility=$(cat "${directory_model}"/compatibility)
 
-		model_compatibility_string=$(echo ${model_compatibility})
+		text_compatibility=$(echo ${content_compatibility})
 
-		model_title=$(cat "${model_directory}"/title)
+		content_title=$(cat "${directory_model}"/title)
 
-		model_title_string=$(echo ${model_title//\<\/\br\>/})
+		text_title=$(echo ${content_title//\<\/\br\>/})
 
-		model_dart=$(cat "${model_directory}"/dart)
+		content_dart=$(cat "${directory_model}"/dart)
 
-		model_dart_string=$(echo ${model_dart//\<\/\br\>/})
+		text_dart=$(echo ${content_dart//\<\/\br\>/})
 
-		model_type=$(cat "${model_directory}"/type)
+		content_type=$(cat "${directory_model}"/type)
 
-		model_type_string=$(echo ${model_type//\<\/\br\>/})
+		text_type=$(echo ${content_type//\<\/\br\>/})
 
-		model_attachment=$(cat "${model_directory}"/attachment)
+		content_attachment=$(cat "${directory_model}"/attachment)
 
-		model_attachment_string=$(echo ${model_attachment})
+		text_attachment=$(echo ${content_attachment})
 
-		model_weight=$(cat "${model_directory}"/weight)
+		content_weight=$(cat "${directory_model}"/weight)
 
-		model_weight_string=$(echo ${model_weight})
+		text_weight=$(echo ${content_weight})
 
-		model_paypal="${model_directory}"/paypal
+		file_paypal="${directory_model}"/paypal
 
-		model_paypal_id=$(cat "${model_directory}"/paypal)
+		id_paypal=$(cat "${directory_model}"/paypal)
 
-		model_price="${model_directory}"/price
+		file_price="${directory_model}"/price
 
-		model_paypal_price=$(cat "${model_directory}"/price)
+		price_model=$(cat "${directory_model}"/price)
 
-		model_quote="${model_directory}"/quote
+		file_quote="${directory_model}"/quote
 
-		model_quote_price=$(cat "${model_directory}"/quote)
+		price_print=$(cat "${directory_model}"/quote)
 
 # generate model drawer entries
 
@@ -246,7 +246,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-2 text-right">
 
-							${model_category}
+							${text_category}
 
 						</div>
 
@@ -258,7 +258,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="product-identifier grid-2 text-right">
 
-							${model_paypal_id}
+							${id_paypal}
 
 						</div>
 
@@ -270,13 +270,13 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-2 text-left">
 
-							MODEL // US$ ${model_paypal_price}
+							MODEL // US$ ${price_model}
 
 						</div>
 
 						<div class="grid-2 text-right">
 
-							<a class="cursor-cell" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" target="_blank">
+							<a class="cursor-cell" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${id_paypal}" target="_blank">
 
 								<label class="cart cursor-pointer text-bold">[ ADD TO CART ]</label>
 
@@ -292,7 +292,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-2 text-left">
 
-							PRINT // US$ ${model_quote_price}
+							PRINT // US$ ${price_print}
 
 						</div>
 
@@ -305,7 +305,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-4">
 
-							<img src="/${model_directory}/renders/thumbnail/thumbnail.png">
+							<img src="/${directory_model}/renders/thumbnail/thumbnail.png">
 
 						</div>
 
@@ -317,7 +317,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-3 text-right">
 
-							${model_compatibility_string}
+							${text_compatibility}
 
 						</div>
 
@@ -335,7 +335,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-3 text-right">
 
-							${model_name_string}
+							${text_name}
 
 						</div>
 
@@ -353,7 +353,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-3 text-right">
 
-							${model_title_string}
+							${text_title}
 
 						</div>
 
@@ -365,7 +365,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-3 text-right">
 
-							${model_dart_string}
+							${text_dart}
 
 						</div>
 
@@ -377,7 +377,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-3 text-right">
 
-							${model_type_string}
+							${text_type}
 
 						</div>
 
@@ -395,7 +395,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-3 text-right">
 
-							${model_attachment_string}
+							${text_attachment}
 
 						</div>
 
@@ -413,7 +413,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid-3 text-right">
 
-							${model_weight_string} G
+							${text_weight} G
 
 						</div>
 
@@ -429,7 +429,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 MODEL-CONTENT
 
-	((count++))
+	(( count_entries ++ ))
 
 	done
 
@@ -482,7 +482,7 @@ cat << COPYRIGHT ->> "modules/drawer.html"
 
 						<div class="grid-4">
 
-							[ VERSION // ${stamp} ]
+							[ VERSION // ${date_version} ]
 
 						</div>
 
@@ -516,7 +516,7 @@ MODEL-CONTENT
 
 done
 
-frobulator.inf "Parsed model entries" "[ ${count} ]"
+frobulator.inf "Parsed model entries" "[ ${count_entries} ]"
 
 frobulator.cpt "Complete" "[ Drawer ]"
 
