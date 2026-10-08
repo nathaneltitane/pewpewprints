@@ -171,7 +171,7 @@ list_extensions=(
 
 for extension in ${list_extensions[@]}
 do
-	count_entries=1
+	count_entries=0
 
 	list_renders=( $(find "${directory_models}" -type f -iname "render.${extension}" | sort) )
 
@@ -198,6 +198,18 @@ do
 		content_compatibility=$(cat "${directory_model}"/compatibility)
 
 		text_compatibility=$(echo ${content_compatibility})
+
+		content_category=$(cat "${directory_model%/*}"/title)
+
+		text_category=$(echo ${content_category})
+
+		content_name=$(cat "${directory_model}"/model)
+
+		text_name=$(echo ${content_name//\<\/\br\>/})
+
+		# model folder name - hidden product name
+
+		name_folder_model="${directory_model##*/}"
 
 		content_title=$(cat "${directory_model}"/title)
 
@@ -419,7 +431,7 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 						<div class="hide product-name grid-4 text-right">
 
-							${path[2]}
+							${name_folder_model}
 
 						</div>
 
