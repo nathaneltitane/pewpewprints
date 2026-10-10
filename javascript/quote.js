@@ -1,46 +1,27 @@
 // quote //
 
-$(document).ready(function() {
+// part id and name filled from the product whose [ QUOTE ] button was clicked
+// delegated from the document - drawer and quote modules load after the page
 
-	var field_id = $("#quote form input[name='part-id']");
+$( document ).on ( 'click', "[for='modal-quote']:not(.modal-close):not(.modal-background)", function ( ) {
 
-	var field_name = $("#quote form input[name='part-name']");
+	var product = $( this ).closest ( '.product' );
 
-	$.each(
+	var id = '';
 
-		$(".product"),
+	var name = '';
 
-			function (index, product) {
+	// footer button - no product - fields cleared
 
-				var id = $(product).find(".product-identifier")[0].innerText;
+	if ( product.length ) {
 
-				var name = $(product).find(".product-name")[0].innerText;
+		id = product.find ( '.product-identifier' ).text ( ).trim ( ).toUpperCase ( );
 
-				var button = $(product).find("[for='modal-quote']")[0];
+		name = product.find ( '.product-name' ).text ( ).trim ( ).toUpperCase ( );
+	}
 
-				id = id.trim();
+	$( "#quote form input[name='part-id']" ).val ( id );
 
-				id = id.toUpperCase();
+	$( "#quote form input[name='part-name']" ).val ( name );
 
-				name = name.trim();
-
-				name = name.toUpperCase();
-
-				$(button).on(
-					"click",
-
-					function (event) {
-
-						$(field_id).attr("value", id);
-
-						$(field_name).attr("value", name);
-
-					}
-
-				);
-
-			}
-
-	);
-
-});
+} );
