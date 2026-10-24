@@ -10,7 +10,7 @@ Useful? Star the repository - it helps others find it.
 
 ---
 
-[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;[ Version // 2023-02-15 ]
+[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;[ Version // 2023-02-15 ]
 
 ---
 
@@ -93,7 +93,7 @@ List of owned Foam Blasters models used for parts testing:
 
 ---
 
-[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;[ Version // 2023-02-15 ]
+[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;[ Version // 2023-02-15 ]
 
 ---
 
