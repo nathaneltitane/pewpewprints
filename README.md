@@ -1,8 +1,8 @@
 ![pewpewprints](https://raw.githubusercontent.com/nathaneltitane/pewpewprints/main/pewpewprints.svg)
 
-[![Donate](https://img.shields.io/badge/Paypal-2f343f.svg?style=for-the-badge&logo=paypal&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ) [![Star](https://img.shields.io/github/stars/nathaneltitane/pewpewprints.svg?style=for-the-badge&logo=github&label=Star&color=2f343f)](https://github.com/nathaneltitane/pewpewprints)
+[![Donate](https://img.shields.io/badge/Paypal-2f343f.svg?style=for-the-badge&logo=paypal&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ) Show your appreciation with a PayPal donation!
 
-⭐ Useful? Star the repository - it helps others find it.
+[![Star](https://img.shields.io/github/stars/nathaneltitane/pewpewprints.svg?style=for-the-badge&logo=github&label=Star&color=2f343f)](https://github.com/nathaneltitane/pewpewprints) Useful? Star the repository - it helps others find it.
 
 [[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints) [ Version // 2023-02-15 ]
 
