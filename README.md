@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/nathaneltitane/pewpewprints/main/pewpewprints.svg" alt="pewpewprints"><br><b>Foam Blaster Printed Parts + Mods</b><br>Pew! Pew!</p>
+<p align="center"><img src="https://raw.githubusercontent.com/nathaneltitane/pewpewprints/main/pewpewprints.svg" alt="pewpewprints"><br><b>Foam Blaster Printed Parts + Mods</b><br>PEW! PEW!</p>
 
 ---
 
