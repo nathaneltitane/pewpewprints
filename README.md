@@ -1,4 +1,6 @@
-![pewpewprints](https://raw.githubusercontent.com/nathaneltitane/pewpewprints/main/pewpewprints.svg)
+<p align="center"><img src="https://raw.githubusercontent.com/nathaneltitane/pewpewprints/main/pewpewprints.svg" alt="pewpewprints"><br><b>Foam Blaster Printed Parts + Mods</b><br>Pew! Pew!</p>
+
+---
 
 [![Donate](https://img.shields.io/badge/Paypal-2f343f.svg?style=for-the-badge&logo=paypal&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)<br>
 Show your appreciation with a PayPal donation!
@@ -10,13 +12,7 @@ Useful? Star the repository - it helps others find it.
 
 ---
 
-[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;[ Version // 2023-02-15 ]
-
----
-
 ### Welcome to [Pew! Pew! Prints](https://pewpewprints.com)
-
-Foam Blaster Printed Parts + Mods: Pew! Pew!
 
 All items are compatible with the following brand names (unless otherwise specified):
 
@@ -92,10 +88,6 @@ List of owned Foam Blasters models used for parts testing:
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/nathaneltitane?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=NATHANEL%20%2b%20TITANE)](https://github.com/nathaneltitane/nathaneltitane)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/pewpewprints?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=PEW%21%20PEW%21%20PRINTS)](https://github.com/nathaneltitane/pewpewprints)
-
----
-
-[[ Pew Pew Prints // Project Page ]](https://github.com/nathaneltitane/pewpewprints)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;[ Version // 2023-02-15 ]
 
 ---
 
