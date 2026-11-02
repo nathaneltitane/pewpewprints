@@ -462,7 +462,7 @@ cat << COPYRIGHT ->> "modules/drawer.html"
 
 							<a class="container copyright" href="https://nathaneltitane.com">
 
-								<img src="/avatar/avatar-bird.png">
+								<img src="/resources/avatar/avatar-bird.png">
 
 							</a>
 
