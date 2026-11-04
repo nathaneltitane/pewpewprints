@@ -8,13 +8,15 @@ script="$(basename -- "${BASH_SOURCE[0]}")"
 
 self_arguments=("${@}")
 
+# load frobulator once
+
 if [ "${frobulator_loaded}" != "true" ]
 then
 	echo
 	echo "[  >  ] Checking..."
 	echo
 
-	# root through sudo keeps using the user's frobulator
+	# keep the sudo user home
 
 	if [ -n "${SUDO_USER}" ]
 	then
@@ -22,15 +24,19 @@ then
 		HOME="$(getent passwd "${SUDO_USER}" | cut -d ':' -f 6)"
 	fi
 
+	# local copy and download
+
 	frobulator="${HOME}/.local/bin/frobulator"
 	frobulator_download="$(mktemp)"
 
 	mkdir -p "${HOME}/.local/bin"
 
-	# latest release - curl or wget - local copy replaced only by a newer one
+	# fetch the latest release
 
 	curl -s -L -o "${frobulator_download}" get.frbltr.app 2> /dev/null ||
 	wget -q -O "${frobulator_download}" get.frbltr.app 2> /dev/null
+
+	# keep only a newer release
 
 	version_online="$(grep -m 1 '^update=' "${frobulator_download}")"
 	version_local="$(grep -m 1 '^update=' "${frobulator}" 2> /dev/null)"
@@ -42,7 +48,11 @@ then
 		chmod +x "${frobulator}"
 	fi
 
+	# drop the download
+
 	rm -f "${frobulator_download}"
+
+	# stop without frobulator
 
 	if [ ! -f "${frobulator}" ]
 	then
@@ -51,6 +61,8 @@ then
 
 		exit 1
 	fi
+
+	# load the library
 
 	source "${frobulator}"
 fi
@@ -114,8 +126,12 @@ done
 
 # variables ────────────────────────────────────────────────────────────────────
 
+# models and output folders
+
 directory_models="${PWD}"/models
 directory_modules="${PWD}"/modules
+
+# version stamp
 
 date_version=$(date +"%m-%d-%Y")
 
@@ -123,11 +139,13 @@ date_version=$(date +"%m-%d-%Y")
 
 # functions ────────────────────────────────────────────────────────────────────
 
+# report progress
+
 frobulator.inf "Generating model entries"
 
 frobulator.fwd "Writing..."
 
-# generate header
+# page header
 
 cat << 'MODEL-DRAWER-HEADER' -> "modules/drawer.html"
 
@@ -161,9 +179,9 @@ cat << 'MODEL-DRAWER-HEADER' -> "modules/drawer.html"
 
 MODEL-DRAWER-HEADER
 
-# generate model entries
+# model entries
 
-# values
+# file types
 
 list_extensions=(
 	png
@@ -173,27 +191,33 @@ for extension in ${list_extensions[@]}
 do
 	count_entries=0
 
+	# every model render
+
 	list_renders=( $(find "${directory_models}" -type f -iname "render.${extension}" | sort) )
 
-	# set IFS
+	# split on new lines
 
 	IFS=$'\n'
 
 	for path_render in ${list_renders[@]}
 	do
+		# path below the site root
+
 		path_render=$(echo "${path_render}" | cut -d '/' -f6-)
 
-		# get model file name from path
+		# render file name
 
 		file_render="${path_render##*/}"
 
-		# strip extension from model file name
+		# name without extension
 
 		name_render="${file_render%.*}"
 
-		# use model directory as root
+		# model folder
 
 		directory_model="${path_render%/*/*}"
+
+		# model details
 
 		content_compatibility=$(cat "${directory_model}"/compatibility)
 
@@ -207,7 +231,7 @@ do
 
 		text_name=$(echo ${content_name//\<\/\br\>/})
 
-		# model folder name - hidden product name
+		# hidden product name
 
 		name_folder_model="${directory_model##*/}"
 
@@ -243,7 +267,7 @@ do
 
 		price_print=$(cat "${directory_model}"/quote)
 
-# generate model drawer entries
+# drawer entry
 
 cat << MODEL-CONTENT ->> "modules/drawer.html"
 				<div class="container product">
@@ -441,9 +465,13 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 
 MODEL-CONTENT
 
+	# count the entry
+
 	(( count_entries ++ ))
 
 	done
+
+# copyright card
 
 cat << COPYRIGHT ->> "modules/drawer.html"
 				<!-- copyright -->
@@ -520,6 +548,8 @@ cat << COPYRIGHT ->> "modules/drawer.html"
 
 COPYRIGHT
 
+# close the models
+
 cat << MODEL-CONTENT ->> "modules/drawer.html"
 				</div>
 
@@ -527,6 +557,8 @@ cat << MODEL-CONTENT ->> "modules/drawer.html"
 MODEL-CONTENT
 
 done
+
+# report the result
 
 frobulator.inf "Parsed model entries" "[ ${count_entries} ]"
 

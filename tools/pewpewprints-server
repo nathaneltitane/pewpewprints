@@ -8,13 +8,15 @@ script="$(basename -- "${BASH_SOURCE[0]}")"
 
 self_arguments=("${@}")
 
+# load frobulator once
+
 if [ "${frobulator_loaded}" != "true" ]
 then
 	echo
 	echo "[  >  ] Checking..."
 	echo
 
-	# root through sudo keeps using the user's frobulator
+	# keep the sudo user home
 
 	if [ -n "${SUDO_USER}" ]
 	then
@@ -22,15 +24,19 @@ then
 		HOME="$(getent passwd "${SUDO_USER}" | cut -d ':' -f 6)"
 	fi
 
+	# local copy and download
+
 	frobulator="${HOME}/.local/bin/frobulator"
 	frobulator_download="$(mktemp)"
 
 	mkdir -p "${HOME}/.local/bin"
 
-	# latest release - curl or wget - local copy replaced only by a newer one
+	# fetch the latest release
 
 	curl -s -L -o "${frobulator_download}" get.frbltr.app 2> /dev/null ||
 	wget -q -O "${frobulator_download}" get.frbltr.app 2> /dev/null
+
+	# keep only a newer release
 
 	version_online="$(grep -m 1 '^update=' "${frobulator_download}")"
 	version_local="$(grep -m 1 '^update=' "${frobulator}" 2> /dev/null)"
@@ -42,7 +48,11 @@ then
 		chmod +x "${frobulator}"
 	fi
 
+	# drop the download
+
 	rm -f "${frobulator_download}"
+
+	# stop without frobulator
 
 	if [ ! -f "${frobulator}" ]
 	then
@@ -51,6 +61,8 @@ then
 
 		exit 1
 	fi
+
+	# load the library
 
 	source "${frobulator}"
 fi
@@ -114,10 +126,14 @@ done
 
 # variables ────────────────────────────────────────────────────────────────────
 
+# site and server folders
+
 directory_content_local="${PWD}"/
 directory_server_local=/var/www/html/pewpewprints/
 
 # defaults ─────────────────────────────────────────────────────────────────────
+
+# needed commands
 
 list=(
 	apache2
@@ -127,7 +143,7 @@ frobulator.require ${list[@]}
 
 # functions ────────────────────────────────────────────────────────────────────
 
-# generate server configuration
+# virtual host configuration
 
 cat <<- 'FILE' > /etc/apache2/sites-enabled/pewpewprints.conf
 <VirtualHost *: 80>
@@ -144,17 +160,17 @@ FILE
 
 service apache2 reload
 
-# enable virtual host configuration distribution
+# enable the site
 
 a2ensite pewpewprints.conf
 
-# configure server host address
+# local host name
 
 cat <<- 'FILE' >> /etc/hosts
 127.0.0.1       dev.pewpewprints.com
 FILE
 
-# generate local server directory
+# server folder
 
 list_directories=(
 	/var/www/html/pewpewprints
@@ -169,13 +185,17 @@ done
 
 # pull ─────────────────────────────────────────────────────────────────────────
 
-rsync							\
-	--archive					\
-	--quiet						\
-	--recursive					\
-	--exclude='*.sldasm'		\
-	--exclude='*.sldprt'		\
-	--exclude='*.stl'			\
+# copy the site, no models
+
+rsync						\
+	--archive				\
+	--quiet					\
+	--recursive				\
+	--exclude='*.sldasm'	\
+	--exclude='*.sldprt'	\
+	--exclude='*.stl'		\
 								"${directory_content_local}"/* "${directory_server_local}"
+
+# report the result
 
 frobulator.cpt "Complete" "[ Server ]"
