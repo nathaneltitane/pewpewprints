@@ -39,6 +39,8 @@ List of owned Foam Blasters models used for parts testing:
 
 - [ NFX ] Mediator
 
+---
+
 ### Repositories:
 
 [Frobulator](https://github.com/nathaneltitane/frobulator) to streamline the scripts and make redundant code a thing of the past.
@@ -47,19 +49,7 @@ List of owned Foam Blasters models used for parts testing:
 
 [GNU/Bash](https://github.com/gitGNU/gnu_bash) as the shell environment on top of which the scripts function.
 
-### Projects:
-
-[[ Dextop // Project Page ]](https://github.com/nathaneltitane/dextop)
-
-[[ Frobulator // Project Page ]](https://github.com/nathaneltitane/frobulator)
-
-[[ L²CU // Project Page ]](https://github.com/nathaneltitane/l2cu)
-
-[[ MechaBlocks // Project Page ]](https://github.com/nathaneltitane/mechablocks)
-
-[[ Nathanel + Titane // Project Page ]](https://github.com/nathaneltitane/nathaneltitane)
-
-[[ Terminal // Project Page ]](https://github.com/nathaneltitane/terminal)
+---
 
 ### Reports:
 
