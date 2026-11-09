@@ -51,6 +51,12 @@ List of owned Foam Blasters models used for parts testing:
 
 ---
 
+### License:
+
+Pew! Pew! Prints is free software released under the GNU General Public License version 3 - see 'LICENSE.md'.
+
+---
+
 ### Reports:
 
 [Submit bug report or feature request](https://github.com/nathaneltitane/pewpewprints/issues)
