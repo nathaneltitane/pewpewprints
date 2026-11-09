@@ -53,7 +53,7 @@ Pew! Pew! Prints is related to [Frobulator](https://github.com/nathaneltitane/fr
 
 Pew! Pew! Prints is free software released under the GNU General Public License version 3 - see 'LICENSE.md'.
 
-Nerf, Adventure Force and Dart Zone are trademarks of their respective owners, who do not sponsor, authorize or endorse this project.
+Nerf® is a trademark of Hasbro, Inc. Adventure Force® is a trademark of Walmart Apollo, LLC. Dart Zone® is a trademark of Prime Time Toys Ltd. None of them sponsors, authorizes or endorses this project.
 
 ---
 
