@@ -41,9 +41,19 @@ List of owned Foam Blasters models used for parts testing:
 
 ---
 
+### Credits:
+
+Pew! Pew! Prints renders its models with [F3D](https://github.com/f3d-app/f3d) and uses [jQuery](https://github.com/jquery/jquery), with its scripts written for [GNU Bash](https://www.gnu.org/software/bash/).
+
+Pew! Pew! Prints is related to [Frobulator](https://github.com/nathaneltitane/frobulator), the shell scripting function library behind every Pew! Pew! Prints script, and [Terminal](https://github.com/nathaneltitane/terminal), shell scripts, templates, dotfiles and utilities, which provides the F3D render utility.
+
+---
+
 ### License:
 
 Pew! Pew! Prints is free software released under the GNU General Public License version 3 - see 'LICENSE.md'.
+
+Nerf, Adventure Force and Dart Zone are trademarks of their respective owners, who do not sponsor, authorize or endorse this project.
 
 ---
 
