@@ -16,10 +16,10 @@ Useful? Star the repository - it helps others find it.
 
 All items are compatible with the following brand names (unless otherwise specified):
 
-- Adventure Force [ AFX ]
-- Dart Zone Pro [ DZP ]
-- Dart Zone Max [ DZM ]
-- Nerf [ NFX ]
+- Adventure Force® [ AFX ]
+- Dart Zone® Pro [ DZP ]
+- Dart Zone® Max [ DZM ]
+- Nerf® [ NFX ]
 
 List of owned Foam Blasters models used for parts testing:
 
