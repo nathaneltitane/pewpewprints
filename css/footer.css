@@ -1,3 +1,5 @@
+/* bottom footer bar */
+
 #footer {
 	background: #888888ff;
 	color: #333333ff;
@@ -14,8 +16,12 @@
 	animation-fill-mode: forwards;
 }
 
+/* footer block */
+
 .footer {
 }
+
+/* footer slide up */
 
 @keyframes footer-reveal {
 	0% {bottom: -80px;}

@@ -1,8 +1,12 @@
+/* available status */
+
 .available {
 	background: #37a537;
 	color: #8de08d !important;
 	font-weight: bold;
 }
+
+/* in progress status */
 
 .progress {
 	background: #ff9e5e;

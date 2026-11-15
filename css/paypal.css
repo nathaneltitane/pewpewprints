@@ -1,14 +1,22 @@
+/* paypal link colour */
+
 .paypal {
 	color: #169bd7ff;
 }
+
+/* paypal link hover */
 
 .paypal:hover {
 	color: #ffcc00ff;
 }
 
+/* cart link colour */
+
 .cart {
 	color: #c5ab41ff;
 }
+
+/* cart link hover */
 
 .cart:hover {
 	color: #bbbbbbff;

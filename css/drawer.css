@@ -1,3 +1,5 @@
+/* bottom drawer */
+
 #drawer {
 	background: #333333ff;
 	border-top: 20px solid #000000ff;
@@ -9,6 +11,8 @@
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
+
+/* drawer pull tab */
 
 #drawer:before {
 	content: "";
@@ -24,6 +28,8 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/* drawer slide up */
 
 @keyframes drawer-reveal {
 	0% {top: 60px;}

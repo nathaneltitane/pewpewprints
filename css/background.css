@@ -1,3 +1,5 @@
+/* background logo */
+
 #background {
 	background-image: url(/resources/logo/logo-teal.svg);
 	background-repeat: no-repeat;
@@ -15,6 +17,8 @@
 	animation-duration: 2.5s;
 	animation-fill-mode: forwards;
 }
+
+/* background fade in */
 
 @keyframes background-reveal {
 	0% {opacity: 0;}

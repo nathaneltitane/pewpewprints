@@ -1,9 +1,13 @@
+/* fixed above the footer */
+
 .fixed {
 	position: fixed;
 	bottom: 80px;
 	left: 0px;
 	right: 0px;
 }
+
+/* centered in its parent */
 
 .centered {
 	position: absolute;

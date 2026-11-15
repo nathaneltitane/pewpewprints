@@ -1,38 +1,58 @@
+/* black logo colour */
+
 .logo-black {
 	background-image: url(/resources/logo/logo-black.svg);
 }
+
+/* blue logo colour */
 
 .logo-blue {
 	background-image: url(/resources/logo/logo-blue.svg);
 }
 
+/* fuschia logo colour */
+
 .logo-fuschia {
 	background-image: url(/resources/logo/logo-fuschia.svg);
 }
+
+/* green logo colour */
 
 .logo-green {
 	background-image: url(/resources/logo/logo-green.svg);
 }
 
+/* grey logo colour */
+
 .logo-grey {
 	background-image: url(/resources/logo/logo-grey.svg);
 }
+
+/* orange logo colour */
 
 .logo-orange {
 	background-image: url(/resources/logo/logo-orange.svg);
 }
 
+/* purple logo colour */
+
 .logo-purple {
 	background-image: url(/resources/logo/logo-purple.svg);
 }
+
+/* red logo colour */
 
 .logo-red {
 	background-image: url(/resources/logo/logo-red.svg);
 }
 
+/* teal logo colour */
+
 .logo-teal {
 	background-image: url(/resources/logo/logo-teal.svg);
 }
+
+/* yellow logo colour */
 
 .logo-yellow {
 	background-image: url(/resources/logo/logo-yellow.svg);

@@ -1,3 +1,5 @@
+/* flex container */
+
 .flex {
 	display: flex;
 
@@ -13,141 +15,211 @@
 	transition: all 0.5s ease;
 }
 
+/* responsive flex width */
+
 .flex-responsive {
 	/* media.css */
 }
+
+/* inline flex container */
 
 .flex-inline {
 	display: inline-flex;
 }
 
+/* flex column */
+
 .flex-column {
 	flex-direction: column;
 }
+
+/* flex column reversed */
 
 .flex-column-reverse {
 	flex-direction: column-reverse;
 }
 
+/* flex row */
+
 .flex-row {
 	flex-direction: row;
 }
+
+/* flex row reversed */
 
 .flex-row-reverse {
 	flex-direction: row-reverse;
 }
 
+/* items to the left */
+
 .flex-left {
 	justify-content: flex-start;
 }
+
+/* items to the right */
 
 .flex-right {
 	justify-content: flex-end;
 }
 
+/* items centered */
+
 .flex-center {
 	justify-content: center;
 }
+
+/* space around items */
 
 .flex-around {
 	justify-content: space-around;
 }
 
+/* space between items */
+
 .flex-between {
 	justify-content: space-between;
 }
+
+/* items to the top */
 
 .flex-start {
 	align-items: flex-start;
 }
 
+/* items to the bottom */
+
 .flex-end {
 	align-items: flex-end;
 }
+
+/* items vertically centered */
 
 .flex-middle {
 	align-items: center;
 }
 
+/* items on the baseline */
+
 .flex-baseline {
 	align-items: baseline;
 }
+
+/* items stretched */
 
 .flex-stretch {
 	align-items: stretch;
 }
 
+/* items wrap */
+
 .flex-wrap {
 	flex-wrap: wrap;
 }
+
+/* items wrap reversed */
 
 .flex-wrap-reverse {
 	flex-wrap: wrap-reverse;
 }
 
+/* one per row */
+
 .flex-1 {
 	width: 100%;
 }
+
+/* two per row */
 
 .flex-2 {
 	width: 50%;
 }
 
+/* three per row */
+
 .flex-3 {
 	width: 30%;
 }
+
+/* four per row */
 
 .flex-4 {
 	width: 25%;
 }
 
+/* five per row */
+
 .flex-5 {
 	width: 20%;
 }
+
+/* cell shares the space */
 
 .flex-cell {
 	flex: 1;
 }
 
+/* six per row */
+
 .flex-6 {
 	width: 15%;
 }
+
+/* cell keeps its size */
 
 .flex-cell-autosize {
 	flex: none;
 }
 
+/* cell shrinks when needed */
+
 .flex-cell-flex {
 	flex: 0 1 auto;
 }
+
+/* cell shown first */
 
 .flex-cell-first {
 	order: -1;
 }
 
+/* cell to the top */
+
 .flex-cell-start {
 	align-self: flex-start;
 }
+
+/* cell to the bottom */
 
 .flex-cell-end {
 	align-self: flex-end;
 }
 
+/* cell vertically centered */
+
 .flex-cell-center {
 	align-self: center;
 }
+
+/* cell on the baseline */
 
 .flex-cell-baseline {
 	align-self: baseline;
 }
 
+/* cell stretched */
+
 .flex-cell-stretch {
 	align-self: stretch;
 }
 
+/* cell grows */
+
 .flex-cell-grow {
 	flex-grow: 1;
 }
+
+/* cell shrinks faster */
 
 .flex-cell-shrink {
 	flex-shrink: 2;

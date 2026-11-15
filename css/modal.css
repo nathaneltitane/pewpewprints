@@ -1,3 +1,5 @@
+/* modal backdrop */
+
 .modal {
 	background: #00000066;
 	bottom: 0px;
@@ -10,6 +12,8 @@
 	visibility: hidden;
 }
 
+/* click outside to close */
+
 .modal-background {
 	cursor: pointer;
 	top: 0px;
@@ -18,6 +22,8 @@
 	left: 0px;
 	position: absolute;
 }
+
+/* modal content */
 
 .modal-content {
 	bottom: 0px;
@@ -34,11 +40,15 @@
 	overflow: auto;
 }
 
+/* contact modal toggle */
+
 #modal-contact {
 	position: fixed;
 	top: 10px;
 	left: 10px;
 }
+
+/* print modal toggle */
 
 #modal-print {
 	position: fixed;
@@ -46,15 +56,21 @@
 	left: 30px;
 }
 
+/* quote modal toggle */
+
 #modal-quote {
 	position: fixed;
 	top: 10px;
 	left: 50px;
 }
 
+/* hidden modal checkbox */
+
 .modal-state {
 	display: none;
 }
+
+/* modal shown when checked */
 
 .modal-state:checked + .modal,
 .modal-state:checked + .modal .modal-content {
@@ -62,6 +78,8 @@
 	opacity: 1;
 	visibility: visible;
 }
+
+/* modal close button */
 
 .modal-close {
 	background: #333333ff;
@@ -75,9 +93,13 @@
 	right: 10px;
 }
 
+/* modal close hover */
+
 .modal-close:hover {
 	color:#ff5050ff;
 }
+
+/* modal input field */
 
 .modal-input {
 	background: #333333ff;
@@ -89,6 +111,8 @@
 	width: 100%;
 }
 
+/* modal message field */
+
 .modal-message {
 	background: #333333ff;
 	border-radius: 5px;
@@ -98,6 +122,8 @@
 	width: 100%;
 	resize: none;
 }
+
+/* modal button */
 
 .modal-button {
 	background: #333333ff;
@@ -112,6 +138,8 @@
 	width: 100%;
 }
 
+/* modal text label */
+
 .modal-text {
 	background: #444444ff;
 	border: 1px solid #888888ff;
@@ -125,38 +153,56 @@
 	resize: none;
 }
 
+/* modal button hover */
+
 .modal-button:hover {
 	color: #008066ff;
 }
 
+/* modal item hover */
+
 .modal-item:hover {
 	color: #008066ff;
 }
+
+/* no number spinners */
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 	display: none;
 }
 
+/* contact link colour */
+
 .contact {
 	color: #bf682eff;
 }
+
+/* contact link hover */
 
 .contact:hover {
 	color: #bbbbbbff;
 }
 
+/* print link colour */
+
 .print {
 	color: #8f4e83ff;
 }
+
+/* print link hover */
 
 .print:hover {
 	color: #bbbbbbff;
 }
 
+/* quote link colour */
+
 .quote {
 	color: #3e9761ff;
 }
+
+/* quote link hover */
 
 .quote:hover {
 	color: #bbbbbbff;

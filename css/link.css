@@ -1,3 +1,5 @@
+/* link */
+
 a {
 	color: #bbbbbbff;
 	display: block;
@@ -8,6 +10,8 @@ a {
 	cursor: pointer;
 }
 
+/* link states */
+
 a:active,
 a:focus,
 a:link,
@@ -16,15 +20,21 @@ a:visited {
 	outline: none;
 }
 
+/* link hover */
+
 a:hover {
 	color: #ffd140ff;
 	text-decoration: none;
 	outline: none;
 }
 
+/* footer link */
+
 #footer a {
 	color: #333333ff;
 }
+
+/* footer link hover */
 
 #footer a:hover {
 	color: #008066ff;

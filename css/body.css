@@ -1,6 +1,10 @@
+/* monospace font everywhere */
+
 * {
 	font-family: 'Noto Sans Mono', monospace !important;
 }
+
+/* page colours and spacing */
 
 body {
 	background: #333333ff;

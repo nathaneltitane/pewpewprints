@@ -1,7 +1,11 @@
+/* pictures fill their width */
+
 img {
 	height: auto;
 	width: 100%;
 }
+
+/* fixed height picture */
 
 .image {
 	height: auto;

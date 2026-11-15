@@ -1,6 +1,10 @@
+/* no canvas focus outline */
+
 canvas:focus {
 	outline: none;
 }
+
+/* model viewer canvas */
 
 #canvas {
 	display: block;
