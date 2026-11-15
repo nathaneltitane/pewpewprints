@@ -4,6 +4,8 @@ a {
 	font-weight: normal;
 	border: none;
 	outline: none;
+
+	cursor: pointer;
 }
 
 a:active,
