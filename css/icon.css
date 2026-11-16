@@ -1,18 +1,18 @@
-/* icon base */
+/* icon image */
 
 .icon {
 	background-repeat: no-repeat;
 	display: block;
 }
 
-/* icon to the left */
+/* icon on the left */
 
 .icon-left{
 	margin-left: 10px;
 	margin-right: auto;
 }
 
-/* icon to the right */
+/* icon on the right */
 
 .icon-right{
 	margin-left: auto;
@@ -26,7 +26,7 @@
 	margin-right: auto;
 }
 
-/* icon fits the bar */
+/* icon fills its box */
 
 .icon-flex {
 	background-size: calc(60px - 10px - 10px);
@@ -34,7 +34,7 @@
 	width: calc(60px - 10px - 10px);
 }
 
-/* 12px icon */
+/* icon at 12px */
 
 .icon-12 {
 	background-size: 12px;
@@ -42,7 +42,7 @@
 	width: 12px;
 }
 
-/* 16px icon */
+/* icon at 16px */
 
 .icon-16 {
 	background-size: 16px;
@@ -50,7 +50,7 @@
 	width: 16px;
 }
 
-/* 24px icon */
+/* icon at 24px */
 
 .icon-24 {
 	background-size: 24px;
@@ -58,7 +58,7 @@
 	width: 24px;
 }
 
-/* 32px icon */
+/* icon at 32px */
 
 .icon-32 {
 	background-size: 32px;
@@ -66,7 +66,7 @@
 	width: 32px;
 }
 
-/* 64px icon */
+/* icon at 64px */
 
 .icon-64 {
 	background-size: 64px;
@@ -74,7 +74,7 @@
 	width: 64px;
 }
 
-/* 96px icon */
+/* icon at 96px */
 
 .icon-96 {
 	background-size: 96px;
@@ -82,7 +82,7 @@
 	width: 96px;
 }
 
-/* 128px icon */
+/* icon at 128px */
 
 .icon-128 {
 	background-size: 128px;
@@ -90,7 +90,7 @@
 	width: 128px;
 }
 
-/* 256px icon */
+/* icon at 256px */
 
 .icon-256 {
 	background-size: 256px;

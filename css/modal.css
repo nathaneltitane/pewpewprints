@@ -35,7 +35,7 @@
 
 	/* width: media.css */
 
-	margin: auto;
+	margin: auto auto auto auto;
 	padding: 0px 0px 0px 0px;
 	overflow: auto;
 }
@@ -83,7 +83,7 @@
 
 .modal-close {
 	background: #333333ff;
-	border-radius: 5px;
+	border-radius: 5px 5px 5px 5px;
 	border: none;
 	color: #888888ff;
 	margin: 0px 0px 10px 0px;
@@ -103,7 +103,7 @@
 
 .modal-input {
 	background: #333333ff;
-	border-radius: 5px;
+	border-radius: 5px 5px 5px 5px;
 	border: none;
 	color: #eeeeeeff;
 	margin: 0px 0px 10px 0px;
@@ -115,10 +115,10 @@
 
 .modal-message {
 	background: #333333ff;
-	border-radius: 5px;
+	border-radius: 5px 5px 5px 5px;
 	border: none;
 	color: #eeeeeeff;
-	padding: 10px;
+	padding: 10px 10px 10px 10px;
 	width: 100%;
 	resize: none;
 }
@@ -128,12 +128,12 @@
 .modal-button {
 	background: #333333ff;
 	color: #888888ff;
-	border-radius: 5px;
+	border-radius: 5px 5px 5px 5px;
 	border: none;
 	bottom: 10px;
 	color: #eeeeeeff;
 	left: 10px;
-	padding: 10px;
+	padding: 10px 10px 10px 10px;
 	right: 10px;
 	width: 100%;
 }
@@ -172,7 +172,7 @@ input[type=number]::-webkit-outer-spin-button {
 	display: none;
 }
 
-/* contact link colour */
+/* contact link color */
 
 .contact {
 	color: #bf682eff;
@@ -184,7 +184,7 @@ input[type=number]::-webkit-outer-spin-button {
 	color: #bbbbbbff;
 }
 
-/* print link colour */
+/* print link color */
 
 .print {
 	color: #8f4e83ff;
@@ -196,7 +196,7 @@ input[type=number]::-webkit-outer-spin-button {
 	color: #bbbbbbff;
 }
 
-/* quote link colour */
+/* quote link color */
 
 .quote {
 	color: #3e9761ff;

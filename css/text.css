@@ -1,16 +1,16 @@
-/* text to the left */
+/* text aligned left */
 
 .text-left {
 	text-align: left;
 }
 
-/* text centered */
+/* text aligned center */
 
 .text-center {
 	text-align: center;
 }
 
-/* text to the right */
+/* text aligned right */
 
 .text-right {
 	text-align: right;
@@ -22,61 +22,61 @@
 	text-align: justify;
 }
 
-/* bold text */
+/* text weight bold */
 
 .text-bold {
 	font-weight: bold;
 }
 
-/* bolder text */
+/* text weight bolder */
 
 .text-bolder {
 	font-weight: bolder;
 }
 
-/* lighter text */
+/* text weight lighter */
 
 .text-lighter {
 	font-weight: lighter;
 }
 
-/* normal weight text */
+/* text weight normal */
 
 .text-normal {
 	font-weight: normal;
 }
 
-/* extra small text */
+/* text size extra small */
 
 .text-extra-small {
 	font-size: 8px;
 }
 
-/* small text */
+/* text size small */
 
 .text-small {
 	font-size: 10px;
 }
 
-/* medium text */
+/* text size medium */
 
 .text-medium {
 	font-size: 12px;
 }
 
-/* normal size text */
+/* text size normal */
 
 .text-normal {
 	font-size: 16px;
 }
 
-/* large text */
+/* text size large */
 
 .text-large {
 	font-size: 20px;
 }
 
-/* extra large text */
+/* text size extra large */
 
 .text-extra-large {
 	font-size: 24px;

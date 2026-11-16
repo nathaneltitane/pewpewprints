@@ -15,97 +15,97 @@
 	transition: all 0.5s ease;
 }
 
-/* responsive flex width */
+/* flex width responsive */
 
 .flex-responsive {
 	/* media.css */
 }
 
-/* inline flex container */
+/* flex container inline */
 
 .flex-inline {
 	display: inline-flex;
 }
 
-/* flex column */
+/* items in a column */
 
 .flex-column {
 	flex-direction: column;
 }
 
-/* flex column reversed */
+/* items in a reversed column */
 
 .flex-column-reverse {
 	flex-direction: column-reverse;
 }
 
-/* flex row */
+/* items in a row */
 
 .flex-row {
 	flex-direction: row;
 }
 
-/* flex row reversed */
+/* items in a reversed row */
 
 .flex-row-reverse {
 	flex-direction: row-reverse;
 }
 
-/* items to the left */
+/* items packed left */
 
 .flex-left {
 	justify-content: flex-start;
 }
 
-/* items to the right */
+/* items packed right */
 
 .flex-right {
 	justify-content: flex-end;
 }
 
-/* items centered */
+/* items packed center */
 
 .flex-center {
 	justify-content: center;
 }
 
-/* space around items */
+/* items spaced around */
 
 .flex-around {
 	justify-content: space-around;
 }
 
-/* space between items */
+/* items spaced between */
 
 .flex-between {
 	justify-content: space-between;
 }
 
-/* items to the top */
+/* items aligned to start */
 
 .flex-start {
 	align-items: flex-start;
 }
 
-/* items to the bottom */
+/* items aligned to end */
 
 .flex-end {
 	align-items: flex-end;
 }
 
-/* items vertically centered */
+/* items aligned to middle */
 
 .flex-middle {
 	align-items: center;
 }
 
-/* items on the baseline */
+/* items aligned to baseline */
 
 .flex-baseline {
 	align-items: baseline;
 }
 
-/* items stretched */
+/* items stretched across */
 
 .flex-stretch {
 	align-items: stretch;
@@ -117,37 +117,37 @@
 	flex-wrap: wrap;
 }
 
-/* items wrap reversed */
+/* items wrap in reverse */
 
 .flex-wrap-reverse {
 	flex-wrap: wrap-reverse;
 }
 
-/* one per row */
+/* cell full width */
 
 .flex-1 {
 	width: 100%;
 }
 
-/* two per row */
+/* cell half width */
 
 .flex-2 {
 	width: 50%;
 }
 
-/* three per row */
+/* cell third width */
 
 .flex-3 {
 	width: 30%;
 }
 
-/* four per row */
+/* cell quarter width */
 
 .flex-4 {
 	width: 25%;
 }
 
-/* five per row */
+/* cell fifth width */
 
 .flex-5 {
 	width: 20%;
@@ -159,61 +159,61 @@
 	flex: 1;
 }
 
-/* six per row */
+/* cell narrow width */
 
 .flex-6 {
 	width: 15%;
 }
 
-/* cell keeps its size */
+/* cell sized to content */
 
 .flex-cell-autosize {
 	flex: none;
 }
 
-/* cell shrinks when needed */
+/* cell shrinks only */
 
 .flex-cell-flex {
 	flex: 0 1 auto;
 }
 
-/* cell shown first */
+/* cell placed first */
 
 .flex-cell-first {
 	order: -1;
 }
 
-/* cell to the top */
+/* cell aligned to start */
 
 .flex-cell-start {
 	align-self: flex-start;
 }
 
-/* cell to the bottom */
+/* cell aligned to end */
 
 .flex-cell-end {
 	align-self: flex-end;
 }
 
-/* cell vertically centered */
+/* cell aligned to middle */
 
 .flex-cell-center {
 	align-self: center;
 }
 
-/* cell on the baseline */
+/* cell aligned to baseline */
 
 .flex-cell-baseline {
 	align-self: baseline;
 }
 
-/* cell stretched */
+/* cell stretched across */
 
 .flex-cell-stretch {
 	align-self: stretch;
 }
 
-/* cell grows */
+/* cell grows to fill */
 
 .flex-cell-grow {
 	flex-grow: 1;
