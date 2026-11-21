@@ -155,6 +155,8 @@ cat << 'MODEL-DRAWER-HEADER' -> "modules/drawer.html"
 
 			<script type="text/javascript">
 
+			// notice module loads
+
 			$(function() {
 
 				$.get("/modules/notice.html", function(data) {
@@ -540,7 +542,7 @@ cat << COPYRIGHT ->> "modules/drawer.html"
 
 						<div class="grid-4">
 
-							N Λ T H Λ N E L - © <text id="year"></text>
+							N Λ T H Λ N E L - <a href="https://www.linkedin.com/in/nathaneltitane">LinkedIn</a> - © <text id="year"></text>
 
 						</div>
 
